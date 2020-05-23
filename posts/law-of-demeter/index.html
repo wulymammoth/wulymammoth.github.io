@@ -40,7 +40,7 @@ This brings with it something that I&rsquo;ve already seen in other languages th
  good for scripting not so good for any software that is to be extended and or maintained  1.">
 <meta itemprop="datePublished" content="2020-05-23T09:44:59-07:00" />
 <meta itemprop="dateModified" content="2020-05-23T09:44:59-07:00" />
-<meta itemprop="wordCount" content="1104">
+<meta itemprop="wordCount" content="1107">
 <meta itemprop="image" content="https://wulymammoth.github.io/"/>
 
 
@@ -175,9 +175,9 @@ This brings with it something that I&rsquo;ve already seen in other languages th
 <blockquote>
 <p><em>In order for us to build this feature, we need a sprint to refactor our code, because we weren&rsquo;t aware of this use case</em></p>
 </blockquote>
-<p>Sometimes we even put the blame on the business and/or product team for NOT having envisioned this in the first place. This is a really poor mindset to have, because at the end of the day &ndash; <strong><em>the only constant in software is change</em></strong>. Some of us may be able to get away with this being a constractor with a single deliverable and pawning off any extension or maintenance to the hapless dev that needs to extend it new features.</p>
+<p>Sometimes we even put the blame on the business and/or product team for NOT having envisioned this in the first place. This is a really poor mindset to have, because at the end of the day &ndash; <strong><em>the only constant in software is change</em></strong>. Some of us may be able to get away with this being a contractor with a single deliverable and pawning off any extension or maintenance to the hapless downstream dev that gets asked to extend it with new features.</p>
 <p>This saddens me, because we&rsquo;ve made assumptions about our software that make it too rigid for extension without inducing a refactor and sometimes (hopefully not) a complete re-write.</p>
-<p>We should strive to write software that&rsquo;s amenable to change, but this also <em>DOES NOT</em> mean that we try to support every possible use case that we can think of just flexible enough to not lock us in.</p>
+<p>We should strive to write software that&rsquo;s amenable to change, but this also <em>DOES NOT</em> mean that we try to support every possible use case that we can think of, just flexible enough to not lock us in.</p>
 <p>Without digressing too far, let&rsquo;s get back to why something that seems to be a welcome, and maybe even a very nice, addition to the language may get us into trouble&hellip;</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UsaAddress</span> {
   <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">street</span>, <span style="color:#a6e22e">state</span>) {
@@ -306,7 +306,7 @@ This brings with it something that I&rsquo;ve already seen in other languages th
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://wulymammoth.github.io/tags/javascript">javascript</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/law-of-demeter">law of demeter</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/software">software</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/solid">solid</a></span>
                 </p>
 
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>1104 Words</p>
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>1107 Words</p>
 
             <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-05-23 09:44 -0700</p>
         </div>
