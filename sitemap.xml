@@ -7,15 +7,15 @@
   </url>
   
   <url>
-    <loc>https://wulymammoth.github.io/</loc>
-  </url>
-  
-  <url>
     <loc>https://wulymammoth.github.io/series/</loc>
   </url>
   
   <url>
     <loc>https://wulymammoth.github.io/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>https://wulymammoth.github.io/</loc>
   </url>
   
 </urlset>
