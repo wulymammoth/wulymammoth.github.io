@@ -16,10 +16,10 @@
             
             <guid>https://wulymammoth.github.io/posts/law-of-demeter/</guid>
             <description>A co-worker linked to the following article describing some of JavaScript&amp;rsquo;s new features in 2020 this past week: https://www.freecodecamp.org/news/javascript-new-features-es2020/. One of the features that stood out was optional chaining.
-This brings with it something that I&amp;rsquo;ve already seen in other languages that I work with, namely Ruby. This sort of convenience feature is a double-edged sword:
+This brings with it something that I&amp;rsquo;ve already seen in other languages that I work with, namely Ruby, and its #try or &amp;amp;. (safe navigation operator). This sort of convenience feature is a double-edged sword:
  good for scripting not so good for any software that is to be extended and or maintained  1.</description>
             <content type="html"><![CDATA[<p>A co-worker linked to the following article describing some of JavaScript&rsquo;s new features in 2020 this past week: <a href="https://www.freecodecamp.org/news/javascript-new-features-es2020/">https://www.freecodecamp.org/news/javascript-new-features-es2020/</a>. One of the features that stood out was <strong>optional chaining</strong>.</p>
-<p>This brings with it something that I&rsquo;ve already seen in other languages that I work with, namely Ruby. This sort of convenience feature is a double-edged sword:</p>
+<p>This brings with it something that I&rsquo;ve already seen in other languages that I work with, namely Ruby, and its <code>#try</code> or <code>&amp;.</code> (safe navigation operator). This sort of convenience feature is a double-edged sword:</p>
 <ol>
 <li>good for scripting</li>
 <li>not so good for any software that is to be extended and or maintained</li>
@@ -36,23 +36,22 @@ This brings with it something that I&amp;rsquo;ve already seen in other language
     }
   }
 }
-</code></pre></div><p>We have this:</p>
+</code></pre></div><p>We have this. Concise ain&rsquo;t it?</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">foo</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">bar</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">baz</span><span style="color:#f92672">?</span>);
-</code></pre></div><p>Look at how concise that is!</p>
-<p>Scripts are typically one-offs and/or throw-away code that likely won&rsquo;t be used again once time moves forward. It isn&rsquo;t always the case, of course. Sometimes we just have to do things that are quick and dirty in scenarios where we are scripting and don&rsquo;t own the content and/or data that we are traversing. Because we aren&rsquo;t the owners, the schema/shape of the data/objects that we want to navigate are opaque to us, therefore subjecting us to defensive programming practices to ensure that we don&rsquo;t have runtime exceptions that halt our script.</p>
+</code></pre></div><p>Scripts are typically one-offs and/or throw-away code that likely won&rsquo;t be used again once time moves forward. It isn&rsquo;t always the case, of course. Sometimes we just have to do things that are quick and dirty in scenarios where we are scripting and don&rsquo;t own the content and/or data that we are traversing. Because we aren&rsquo;t the owners, the schema/shape of the data/objects that we want to navigate are opaque to us, therefore subjecting us to defensive programming practices to ensure that we don&rsquo;t have runtime exceptions that halt our script.</p>
 <p>That said, the terseness of the new feature makes our script much more readable and removes possible blocks of indentation from conditional logic.</p>
 <h2 id="2-_why-isnt-it-so-good-for-any-real-software_">2. <em>why isn&rsquo;t it so good for any real software?</em></h2>
-<p><strong>The TL;DR : tight-coupling and implicit dependencies</strong></p>
-<p>I don&rsquo;t really see a difference between new and professional software developers with years of experience. Some of us are lucky enough to learn it from the job, but many of us don&rsquo;t. I&rsquo;m not a classically trained computer scientist or software developer &ndash; I&rsquo;m primarily self-taught. Being a software developer, I&rsquo;m always seeking to reduce pain, because going into any existing organization almost always involves some maintenance work - fixing legacy systems or extending them in addition to any greenfield work. The only way to become good at this is to be cognizant and to seek answeres. It&rsquo;s okay to go, <em>&ldquo;WTF wrote this shit?&quot;</em> momentarily, but not exacerbate the problem by piling onto it and/or following a terrible example &ndash; because any code that we commit becomes an example someone else will likely follow. It&rsquo;s usually the <em>easy</em> thing to do, but it&rsquo;s not the <em>simple</em> thing &ndash; see Rich Hickey&rsquo;s <a href="https://youtu.be/oytL881p-nQ">&ldquo;Simple Made Easy&rdquo;</a> talk.</p>
-<p>We commit the same mistakes over and over creating insurmountable technical debt for their future selves and the people that will eventually come to maintain and/or extend their code.</p>
-<p>In almost all organizations that I&rsquo;ve been at, the following conversation almost always comes up:</p>
+<p><strong>The TL;DR : maintenance or feature extension nightmares from tight-coupling and implicit dependencies</strong></p>
+<p>In almost all organizations that I&rsquo;ve been at, the following conversation almost always comes up (back-pressure from the devs on the team):</p>
 <blockquote>
 <p><em>In order for us to build this feature, we need a sprint to refactor our code, because we weren&rsquo;t aware of this use case</em></p>
 </blockquote>
-<p>This saddens me, because we made assumptions about our software that make it too rigid to let us extend existing work with new features.</p>
-<p>Without digressing too far, let&rsquo;s get back to why something that seems to be a welcome and even nice addition to the language, may get us into trouble&hellip;</p>
+<p>Sometimes we even put the blame on the business and/or product team for NOT having envisioned this in the first place. This is a really poor mindset to have, because at the end of the day &ndash; <strong><em>the only constant in software is change</em></strong>. Some of us may be able to get away with this being a constractor with a single deliverable and pawning off any extension or maintenance to the hapless dev that needs to extend it new features.</p>
+<p>This saddens me, because we&rsquo;ve made assumptions about our software that make it too rigid for extension without inducing a refactor and sometimes (hopefully not) a complete re-write.</p>
+<p>We should strive to write software that&rsquo;s amenable to change, but this also <em>DOES NOT</em> mean that we try to support every possible use case that we can think of just flexible enough to not lock us in.</p>
+<p>Without digressing too far, let&rsquo;s get back to why something that seems to be a welcome, and maybe even a very nice, addition to the language may get us into trouble&hellip;</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UsaAddress</span> {
-  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">street</span>, <span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">country</span>) {
+  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">street</span>, <span style="color:#a6e22e">state</span>) {
     <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">street</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">street</span>;
     <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>   <span style="color:#f92672">=</span> <span style="color:#a6e22e">state</span>;
     <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">country</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;United States of America&#34;</span>;
@@ -66,18 +65,25 @@ This brings with it something that I&amp;rsquo;ve already seen in other language
   }
 }
 
+<span style="color:#75715e">/*
+</span><span style="color:#75715e">Is the following better? 🧐
+</span><span style="color:#75715e">
+</span><span style="color:#75715e">BEFORE:
+</span><span style="color:#75715e">person &amp;&amp; person.address &amp;&amp; person.address.street
+</span><span style="color:#75715e">person &amp;&amp; person.address &amp;&amp; person.address.state
+</span><span style="color:#75715e">*/</span>
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">printAddress</span>(<span style="color:#a6e22e">person</span>) {
   <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>([
-    <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">street</span><span style="color:#f92672">?</span>,
-    <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">state</span><span style="color:#f92672">?</span>,
-    <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">country</span>
+    <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">street</span><span style="color:#f92672">?</span>, <span style="color:#75715e">// 👈 nicer syntax
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">state</span><span style="color:#f92672">?</span>, <span style="color:#75715e">// 👈 with new optional chaining
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">country</span>
   ].<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;\n&#39;</span>));
 }
 
 <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">address</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">UsaAddress</span>(<span style="color:#e6db74">&#39;123 Foo St.&#39;</span>, <span style="color:#e6db74">&#39;New York&#39;</span>);
 <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">andrea</span>  <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Person</span>(<span style="color:#e6db74">&#39;Andrea&#39;</span>, <span style="color:#a6e22e">address</span>),
 <span style="color:#a6e22e">printAddress</span>(<span style="color:#a6e22e">andrea</span>);
-</code></pre></div><p>So what&rsquo;s wrong here?</p>
+</code></pre></div><p>What&rsquo;s wrong here?</p>
 <p>Our <code>printAddress</code> function assumes several things about a person:</p>
 <ol>
 <li>that the person has an address property</li>
@@ -94,7 +100,7 @@ This brings with it something that I&amp;rsquo;ve already seen in other language
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">country</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Canada&#34;</span>;
   }
 }
-</code></pre></div><p>What most of us do to support this new use case:</p>
+</code></pre></div><p>What most of us do to support this new use case</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">printAddress</span>(<span style="color:#a6e22e">person</span>) {
   <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>([
     <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">street</span><span style="color:#f92672">?</span>,
@@ -105,7 +111,7 @@ This brings with it something that I&amp;rsquo;ve already seen in other language
 
 <span style="color:#75715e">// - OR - 🤮
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">printAddress</span>(<span style="color:#a6e22e">person</span>) {
-  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
   <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">constructor</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;UsaAddress&#34;</span>) {
     <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">state</span>;
   } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">constructor</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;CanadianAddress&#34;</span>) {
@@ -121,27 +127,45 @@ This brings with it something that I&amp;rsquo;ve already seen in other language
   ].<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;\n&#39;</span>));
 }
 </code></pre></div><p>Guess what happens when we need to support another type of address&hellip;</p>
+<blockquote>
+<p><em>Easy!! Just add another condition!</em></p>
+</blockquote>
+<p>Unfortunately, the above is <em>NOT</em> the right answer if we want to maintain extensibility and avoid the possibility of introducing a regression when mangling with existing code.</p>
 <p>The <code>printAddress</code> function has dependencies that aren&rsquo;t passed into it:</p>
 <ol>
 <li>address</li>
-<li>state and province on an address</li>
+<li>the state OR province on an address</li>
 </ol>
-<p>This function knows about something that is <strong>two degrees of separation</strong> away from itself, and if it changes, which the introduction of Canadian addresses introduces, our <code>printAddress</code> must change, too. This is tight-coupling &ndash; this function must move in lock-step with any address changes. It&rsquo;s rigid. It likely also requires updates to unit-tests if there were any to begin with. Touching existing code can always introduce a regression as well.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">          <span style="color:#960050;background-color:#1e0010">👇</span> <span style="color:#75715e">// one degree of separation
+<p>This function knows about something that is <strong>two degrees of separation</strong> away from itself, and if it changes, which the introduction of Canadian addresses introduces, our <code>printAddress</code> must change, too. This is tight-coupling &ndash; this function must move in lock-step with any address changes. It&rsquo;s rigid. It likely also requires updates to unit tests if there were any to begin with.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">         <span style="color:#960050;background-color:#1e0010">👇</span> <span style="color:#75715e">// one degree of separation
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">state</span><span style="color:#f92672">?</span>
-                   <span style="color:#960050;background-color:#1e0010">👆</span> <span style="color:#75715e">// two degrees of separation
-</span></code></pre></div><p>How do we fix this? Follow the <strong>Law of Demeter</strong> which simply states:</p>
+                  <span style="color:#960050;background-color:#1e0010">👆</span> <span style="color:#75715e">// two degrees of separation
+</span></code></pre></div><p><strong>NOTE</strong></p>
+<ul>
+<li>The only thing passed in as an argument to our function is a <strong>person</strong> object</li>
+<li>This implies that our function <strong>depends</strong> on having a person for it to operate</li>
+<li>BUT it implicitly also says that the person must have an address and its address must have a state or province</li>
+</ul>
+<hr>
+<p>How do we fix this? Follow the <strong>Law of Demeter</strong> which simply states:</p>
 <blockquote>
-<p><strong>Each unit should have only limited knowledge about other units: only units &ldquo;closely&rdquo; related to the current unit.</strong></p>
+<p><strong><em>Each unit should have only limited knowledge about other units: only units &ldquo;closely&rdquo; related to the current unit.</em></strong></p>
 </blockquote>
 <blockquote>
-<p><strong>Each unit should only talk to its friends; don&rsquo;t talk to strangers.</strong></p>
+<p><strong><em>Each unit should only talk to its friends; don&rsquo;t talk to strangers.</em></strong></p>
 </blockquote>
 <blockquote>
-<p><strong>Only talk to your immediate friends.</strong></p>
+<p><strong><em>Only talk to your immediate friends.</em></strong></p>
 </blockquote>
 <p>With the above guidelines, we can interpret it to say, <em>&ldquo;a function should only know about things that are about a degree of separation away&rdquo;</em>.</p>
+<p>Ideally, we only go as far as this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span>);
+</code></pre></div><p>When we spot <strong>chaining</strong> that goes beyond a degree of separation away from injected dependencies (e.g., <code>person</code>), red flags <em>should</em> be raised.</p>
 <p>We&rsquo;ll talk about how to fix this in a follow up post.</p>
+<hr>
+<h2 id="additional-thoughts">additional thoughts</h2>
+<p>I don&rsquo;t really see a much of difference between software developers with years of experience and ones that are new. Some of us are lucky enough to learn it from the job having good mentors, but many of us don&rsquo;t. A genuine curiosity and simply just caring as led me to find solutions to these problems without re-inventing the wheel.</p>
+<p>I implore anyone that truly cares about writing maintainable software to check out <a href="https://youtu.be/oytL881p-nQ">&ldquo;Simple Made Easy&rdquo;</a> by Rich Hickey, author of the Clojure programming language and truly understanding what the principles that make up the acronym that <a href="https://en.wikipedia.org/wiki/SOLID"><strong>SOLID</strong></a> embodies.</p>
 ]]></content>
         </item>
         

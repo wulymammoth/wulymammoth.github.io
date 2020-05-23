@@ -19,7 +19,7 @@
       
       <guid>https://wulymammoth.github.io/posts/law-of-demeter/</guid>
       <description>A co-worker linked to the following article describing some of JavaScript&amp;rsquo;s new features in 2020 this past week: https://www.freecodecamp.org/news/javascript-new-features-es2020/. One of the features that stood out was optional chaining.
-This brings with it something that I&amp;rsquo;ve already seen in other languages that I work with, namely Ruby. This sort of convenience feature is a double-edged sword:
+This brings with it something that I&amp;rsquo;ve already seen in other languages that I work with, namely Ruby, and its #try or &amp;amp;. (safe navigation operator). This sort of convenience feature is a double-edged sword:
  good for scripting not so good for any software that is to be extended and or maintained  1.</description>
     </item>
     
