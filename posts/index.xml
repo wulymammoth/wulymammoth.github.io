@@ -1,37 +1,162 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on wulymammoth</title>
-    <link>https://wulymammoth.github.io/posts/</link>
-    <description>Recent content in Posts on wulymammoth</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 23 May 2020 09:44:59 -0700</lastBuildDate>
-    
-	<atom:link href="https://wulymammoth.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Violating the Law of Demeter</title>
-      <link>https://wulymammoth.github.io/posts/law-of-demeter/</link>
-      <pubDate>Sat, 23 May 2020 09:44:59 -0700</pubDate>
-      
-      <guid>https://wulymammoth.github.io/posts/law-of-demeter/</guid>
-      <description>A co-worker linked to the following article describing some of JavaScript&amp;rsquo;s new features in 2020 this past week: https://www.freecodecamp.org/news/javascript-new-features-es2020/. One of the features that stood out was optional chaining.
+    <channel>
+        <title>Posts on wulymammoth</title>
+        <link>https://wulymammoth.github.io/posts/</link>
+        <description>Recent content in Posts on wulymammoth</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Sat, 23 May 2020 09:44:59 -0700</lastBuildDate>
+        <atom:link href="https://wulymammoth.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Violating the Law of Demeter</title>
+            <link>https://wulymammoth.github.io/posts/law-of-demeter/</link>
+            <pubDate>Sat, 23 May 2020 09:44:59 -0700</pubDate>
+            
+            <guid>https://wulymammoth.github.io/posts/law-of-demeter/</guid>
+            <description>A co-worker linked to the following article describing some of JavaScript&amp;rsquo;s new features in 2020 this past week: https://www.freecodecamp.org/news/javascript-new-features-es2020/. One of the features that stood out was optional chaining.
 This brings with it something that I&amp;rsquo;ve already seen in other languages that I work with, namely Ruby. This sort of convenience feature is a double-edged sword:
  good for scripting not so good for any software that is to be extended and or maintained  1.</description>
-    </item>
-    
-    <item>
-      <title>My First Post</title>
-      <link>https://wulymammoth.github.io/posts/my-first-post/</link>
-      <pubDate>Sat, 23 May 2020 09:14:51 -0700</pubDate>
-      
-      <guid>https://wulymammoth.github.io/posts/my-first-post/</guid>
-      <description>Bringing back my blog, particularly for technical musings, but also as a semi-infrequently updated journal
+            <content type="html"><![CDATA[<p>A co-worker linked to the following article describing some of JavaScript&rsquo;s new features in 2020 this past week: <a href="https://www.freecodecamp.org/news/javascript-new-features-es2020/">https://www.freecodecamp.org/news/javascript-new-features-es2020/</a>. One of the features that stood out was <strong>optional chaining</strong>.</p>
+<p>This brings with it something that I&rsquo;ve already seen in other languages that I work with, namely Ruby. This sort of convenience feature is a double-edged sword:</p>
+<ol>
+<li>good for scripting</li>
+<li>not so good for any software that is to be extended and or maintained</li>
+</ol>
+<h2 id="1-_why_-is-it-good-for-scripting">1. <em>why</em> is it good for scripting?</h2>
+<p>Instead of the verbosity below:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">foo</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">foo</span>.<span style="color:#a6e22e">bar</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">foo</span>.<span style="color:#a6e22e">bar</span>.<span style="color:#a6e22e">baz</span>) <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">foo</span>.<span style="color:#a6e22e">bar</span>.<span style="color:#a6e22e">baz</span>);
+
+<span style="color:#75715e">// -OR- 🤮
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">foo</span>) {
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">foo</span>.<span style="color:#a6e22e">bar</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">foo</span>.<span style="color:#a6e22e">bar</span>.<span style="color:#a6e22e">baz</span>) {
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">foo</span>.<span style="color:#a6e22e">bar</span>.<span style="color:#a6e22e">baz</span>);
+    }
+  }
+}
+</code></pre></div><p>We have this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">foo</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">bar</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">baz</span><span style="color:#f92672">?</span>);
+</code></pre></div><p>Look at how concise that is!</p>
+<p>Scripts are typically one-offs and/or throw-away code that likely won&rsquo;t be used again once time moves forward. It isn&rsquo;t always the case, of course. Sometimes we just have to do things that are quick and dirty in scenarios where we are scripting and don&rsquo;t own the content and/or data that we are traversing. Because we aren&rsquo;t the owners, the schema/shape of the data/objects that we want to navigate are opaque to us, therefore subjecting us to defensive programming practices to ensure that we don&rsquo;t have runtime exceptions that halt our script.</p>
+<p>That said, the terseness of the new feature makes our script much more readable and removes possible blocks of indentation from conditional logic.</p>
+<h2 id="2-_why_-isnt-it-so-good-for-any-real-software">2. <em>why</em> isn&rsquo;t it so good for any real software?</h2>
+<p><strong>The TL;DR : tight-coupling and implicit dependencies</strong></p>
+<p>I don&rsquo;t really see a difference between new and professional software developers with years of experience. Some of us are lucky enough to learn it from the job, but many of us don&rsquo;t. I&rsquo;m not a classically trained computer scientist or software developer &ndash; I&rsquo;m primarily self-taught. Being a software developer, I&rsquo;m always seeking to reduce pain, because going into any existing organization almost always involves some maintenance work - fixing legacy systems or extending them in addition to any greenfield work. The only way to become good at this is to be cognizant and to seek answeres. It&rsquo;s okay to go, <em>&ldquo;WTF wrote this shit?&quot;</em> momentarily, but not exacerbate the problem by piling onto it and/or following a terrible example &ndash; because any code that we commit becomes an example someone else will likely follow. It&rsquo;s usually the <em>easy</em> thing to do, but it&rsquo;s not the <em>simple</em> thing &ndash; see Rich Hickey&rsquo;s <a href="https://youtu.be/oytL881p-nQ">&ldquo;Simple Made Easy&rdquo;</a> talk.</p>
+<p>We commit the same mistakes over and over creating insurmountable technical debt for their future selves and the people that will eventually come to maintain and/or extend their code.</p>
+<p>In almost all organizations that I&rsquo;ve been at, the following conversation almost always comes up:</p>
+<blockquote>
+<p><em>In order for us to build this feature, we need a sprint to refactor our code, because we weren&rsquo;t aware of this use case</em></p>
+</blockquote>
+<p>This saddens me, because we made assumptions about our software that make it too rigid to let us extend existing work with new features.</p>
+<p>Without digressing too far, let&rsquo;s get back to why something that seems to be a welcome and even nice addition to the language, may get us into trouble&hellip;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UsaAddress</span> {
+  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">street</span>, <span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">country</span>) {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">street</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">street</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">state</span>   <span style="color:#f92672">=</span> <span style="color:#a6e22e">state</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">country</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;United States of America&#34;</span>;
+  }
+}
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> {
+  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">address</span>) {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span>    <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">address</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">address</span>;
+  }
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">printAddress</span>(<span style="color:#a6e22e">person</span>) {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>([
+    <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">street</span><span style="color:#f92672">?</span>,
+    <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">state</span><span style="color:#f92672">?</span>,
+    <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">country</span>
+  ].<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;\n&#39;</span>));
+}
+
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">address</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">UsaAddress</span>(<span style="color:#e6db74">&#39;123 Foo St.&#39;</span>, <span style="color:#e6db74">&#39;New York&#39;</span>);
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">andrea</span>  <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Person</span>(<span style="color:#e6db74">&#39;Andrea&#39;</span>, <span style="color:#a6e22e">address</span>),
+<span style="color:#a6e22e">printAddress</span>(<span style="color:#a6e22e">andrea</span>);
+</code></pre></div><p>So what&rsquo;s wrong here?</p>
+<p>Our <code>printAddress</code> function assumes several things about a person:</p>
+<ol>
+<li>that the person has an address property</li>
+<li>that the address has a state property</li>
+</ol>
+<p>So what?</p>
+<blockquote>
+<p><em>Hey team! We&rsquo;ve got new business!!! We&rsquo;re going to be supporting Canadian addresses!</em></p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CanadaAddress</span> {
+  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">street</span>, <span style="color:#a6e22e">province</span>, <span style="color:#a6e22e">country</span>) {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">street</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">street</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">province</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">province</span>; <span style="color:#75715e">// 👈 difference
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">country</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Canada&#34;</span>;
+  }
+}
+</code></pre></div><p>What most of us do to support this new use case:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">printAddress</span>(<span style="color:#a6e22e">person</span>) {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>([
+    <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">street</span><span style="color:#f92672">?</span>,
+    <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">state</span><span style="color:#f92672">?</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">province</span><span style="color:#f92672">?</span>, <span style="color:#75715e">// ⚠️
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">country</span>
+  ].<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;\n&#39;</span>));
+}
+
+<span style="color:#75715e">// - OR - 🤮
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">printAddress</span>(<span style="color:#a6e22e">person</span>) {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">constructor</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;UsaAddress&#34;</span>) {
+    <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">state</span>;
+  } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">constructor</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;CanadianAddress&#34;</span>) {
+    <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">province</span>;
+  } <span style="color:#66d9ef">else</span> {
+    <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+  }
+
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>([
+    <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">street</span><span style="color:#f92672">?</span>,
+    <span style="color:#a6e22e">state</span>,
+    <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">country</span>
+  ].<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;\n&#39;</span>));
+}
+</code></pre></div><p>Guess what happens when we need to support another type of address&hellip;</p>
+<p>The <code>printAddress</code> function has dependencies that aren&rsquo;t passed into it:</p>
+<ol>
+<li>address</li>
+<li>state and province on an address</li>
+</ol>
+<p>This function knows about something that is <strong>two degrees of separation</strong> away from itself, and if it changes, which the introduction of Canadian addresses introduces, our <code>printAddress</code> must change, too. This is tight-coupling &ndash; this function must move in lock-step with any address changes. It&rsquo;s rigid. It likely also requires updates to unit-tests if there were any to begin with. Touching existing code can always introduce a regression as well.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">          <span style="color:#960050;background-color:#1e0010">👇</span> <span style="color:#75715e">// one degree of separation
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">state</span><span style="color:#f92672">?</span>
+                   <span style="color:#960050;background-color:#1e0010">👆</span> <span style="color:#75715e">// two degrees of separation
+</span></code></pre></div><p>How do we fix this? Follow the <strong>Law of Demeter</strong> which simply states:</p>
+<blockquote>
+<p><strong>Each unit should have only limited knowledge about other units: only units &ldquo;closely&rdquo; related to the current unit.</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Each unit should only talk to its friends; don&rsquo;t talk to strangers.</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Only talk to your immediate friends.</strong></p>
+</blockquote>
+<p>With the above guidelines, we can interpret it to say, <em>&ldquo;a function should only know about things that are about a degree of separation away&rdquo;</em>.</p>
+<p>We&rsquo;ll talk about how to fix this in a follow up post.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>My First Post</title>
+            <link>https://wulymammoth.github.io/posts/my-first-post/</link>
+            <pubDate>Sat, 23 May 2020 09:14:51 -0700</pubDate>
+            
+            <guid>https://wulymammoth.github.io/posts/my-first-post/</guid>
+            <description>Bringing back my blog, particularly for technical musings, but also as a semi-infrequently updated journal
 $ cat friends.txt | awk &amp;#39;{ print &amp;#34;👋 &amp;#34; %0 &amp;#34;!&amp;#34; }&amp;#39; </description>
-    </item>
-    
-  </channel>
+            <content type="html"><![CDATA[<p>Bringing back my blog, particularly for technical musings, but also as a semi-infrequently updated journal</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat friends.txt | awk <span style="color:#e6db74">&#39;{ print &#34;👋 &#34; %0 &#34;!&#34; }&#39;</span>
+</code></pre></div>]]></content>
+        </item>
+        
+    </channel>
 </rss>
