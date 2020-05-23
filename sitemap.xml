@@ -3,19 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>localhost/blog/</loc>
+    <loc>https://wulymammoth.github.io/blog/</loc>
   </url>
   
   <url>
-    <loc>localhost/</loc>
+    <loc>https://wulymammoth.github.io/</loc>
   </url>
   
   <url>
-    <loc>localhost/series/</loc>
+    <loc>https://wulymammoth.github.io/series/</loc>
   </url>
   
   <url>
-    <loc>localhost/tags/</loc>
+    <loc>https://wulymammoth.github.io/tags/</loc>
   </url>
   
 </urlset>
