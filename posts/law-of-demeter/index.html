@@ -241,12 +241,12 @@ This brings with it something that I&rsquo;ve already seen in other languages th
 <span style="color:#75715e">// - OR - 🤮
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">printAddress</span>(<span style="color:#a6e22e">person</span>) {
   <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
-  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">constructor</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;UsaAddress&#34;</span>) {
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">constructor</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;UsaAddress&#39;</span>) {
     <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">state</span>;
-  } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">constructor</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;CanadianAddress&#34;</span>) {
+  } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">constructor</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;CanadianAddress&#39;</span>) {
     <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">person</span>.<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">province</span>;
   } <span style="color:#66d9ef">else</span> {
-    <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+    <span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
   }
 
   <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>([
