@@ -176,9 +176,9 @@ This brings with it something that I&amp;rsquo;ve already seen in other language
             
             <guid>https://wulymammoth.github.io/posts/my-first-post/</guid>
             <description>Bringing back my blog, particularly for technical musings, but also as a semi-infrequently updated journal
-$ cat friends.txt | awk &amp;#39;{ print &amp;#34;👋 &amp;#34; %0 &amp;#34;!&amp;#34; }&amp;#39; </description>
+$ cat friends.txt | awk &amp;#39;{ print &amp;#34;👋 &amp;#34; %1 &amp;#34;!&amp;#34; }&amp;#39; </description>
             <content type="html"><![CDATA[<p>Bringing back my blog, particularly for technical musings, but also as a semi-infrequently updated journal</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat friends.txt | awk <span style="color:#e6db74">&#39;{ print &#34;👋 &#34; %0 &#34;!&#34; }&#39;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat friends.txt | awk <span style="color:#e6db74">&#39;{ print &#34;👋 &#34; %1 &#34;!&#34; }&#39;</span>
 </code></pre></div>]]></content>
         </item>
         

@@ -30,7 +30,7 @@ This brings with it something that I&amp;rsquo;ve already seen in other language
       
       <guid>https://wulymammoth.github.io/posts/my-first-post/</guid>
       <description>Bringing back my blog, particularly for technical musings, but also as a semi-infrequently updated journal
-$ cat friends.txt | awk &amp;#39;{ print &amp;#34;👋 &amp;#34; %0 &amp;#34;!&amp;#34; }&amp;#39; </description>
+$ cat friends.txt | awk &amp;#39;{ print &amp;#34;👋 &amp;#34; %1 &amp;#34;!&amp;#34; }&amp;#39; </description>
     </item>
     
   </channel>
