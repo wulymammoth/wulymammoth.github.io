@@ -164,8 +164,8 @@ This brings with it something that I&amp;rsquo;ve already seen in other language
 <p>We&rsquo;ll talk about how to fix this in a follow up post.</p>
 <hr>
 <h2 id="additional-thoughts">additional thoughts</h2>
-<p>I don&rsquo;t really see a much of difference between software developers with years of experience and ones that are new. Some of us are lucky enough to learn it from the job having good mentors, but many of us don&rsquo;t. A genuine curiosity and simply just caring as led me to find solutions to these problems without re-inventing the wheel.</p>
-<p>I implore anyone that truly cares about writing maintainable software to check out <a href="https://youtu.be/oytL881p-nQ">&ldquo;Simple Made Easy&rdquo;</a> by Rich Hickey, author of the Clojure programming language and truly understanding what the principles that make up the acronym that <a href="https://en.wikipedia.org/wiki/SOLID"><strong>SOLID</strong></a> embodies.</p>
+<p>I don&rsquo;t really see a much of difference between software developers with years of experience and ones that are new. Some of us are lucky enough to learn it from the job having good mentors, but many of us don&rsquo;t. A genuine curiosity and simply just caring has led me to find solutions to these problems without re-inventing the wheel.</p>
+<p>I implore anyone that truly cares about writing maintainable software to check out <a href="https://youtu.be/oytL881p-nQ">&ldquo;Simple Made Easy&rdquo;</a> by Rich Hickey, author of the Clojure programming language and giving oneself the opportunity to understand the principles that make up the acronym that <a href="https://en.wikipedia.org/wiki/SOLID"><strong>SOLID</strong></a> embodies.</p>
 ]]></content>
         </item>
         
