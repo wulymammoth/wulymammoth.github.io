@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="">
+<meta name="description" content="TL;DR   The screenshot is from the following talk by Saša Jurić, the author of Elixir in Action, being the first book that I had ever read on the language when I began. If I could get you to take anything away from this post, it&amp;rsquo;d be the entirety of this video. Watch it! You won&amp;rsquo;t be disappointed as it delivers like no other talk you&amp;rsquo;ve seen &amp;ndash; &amp;ldquo;brutally&amp;rdquo; to the point giving you an idea about what it is like running real systems in production that the BEAM (Erlang VM) provides and that no other platform provides out of the box; not Haskell, not Scala, not Clojure, not OCaml." />
+<meta name="keywords" content=", BEAM, Clojure, Elixir, Erlang, F#, Haskell, Python, Ruby, Scala, programming-languages, software" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://wulymammoth.github.io/posts/why_i_love_elixir/" />
+
+
+    <title>
+        
+            Why I Love Elixir (Erlang) :: wulymammoth  — tolle fuga ad astra 🚀 ✨
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.6a997c8016a3bda9337b3b76e0a8de9c7c8f25d8deef5f02e09d88b74392d15a.css">
+
+
+
+
+
+
+<meta itemprop="name" content="Why I Love Elixir (Erlang)">
+<meta itemprop="description" content="TL;DR   The screenshot is from the following talk by Saša Jurić, the author of Elixir in Action, being the first book that I had ever read on the language when I began. If I could get you to take anything away from this post, it&rsquo;d be the entirety of this video. Watch it! You won&rsquo;t be disappointed as it delivers like no other talk you&rsquo;ve seen &ndash; &ldquo;brutally&rdquo; to the point giving you an idea about what it is like running real systems in production that the BEAM (Erlang VM) provides and that no other platform provides out of the box; not Haskell, not Scala, not Clojure, not OCaml.">
+<meta itemprop="datePublished" content="2020-05-25T08:07:47-07:00" />
+<meta itemprop="dateModified" content="2020-05-25T08:07:47-07:00" />
+<meta itemprop="wordCount" content="1587">
+<meta itemprop="image" content="https://wulymammoth.github.io/"/>
+
+
+
+<meta itemprop="keywords" content="BEAM,Clojure,Elixir,Erlang,F#,Haskell,Python,Ruby,Scala,programming-languages,software," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://wulymammoth.github.io/"/>
+
+<meta name="twitter:title" content="Why I Love Elixir (Erlang)"/>
+<meta name="twitter:description" content="TL;DR   The screenshot is from the following talk by Saša Jurić, the author of Elixir in Action, being the first book that I had ever read on the language when I began. If I could get you to take anything away from this post, it&rsquo;d be the entirety of this video. Watch it! You won&rsquo;t be disappointed as it delivers like no other talk you&rsquo;ve seen &ndash; &ldquo;brutally&rdquo; to the point giving you an idea about what it is like running real systems in production that the BEAM (Erlang VM) provides and that no other platform provides out of the box; not Haskell, not Scala, not Clojure, not OCaml."/>
+
+
+
+    <meta property="og:title" content="Why I Love Elixir (Erlang)" />
+<meta property="og:description" content="TL;DR   The screenshot is from the following talk by Saša Jurić, the author of Elixir in Action, being the first book that I had ever read on the language when I began. If I could get you to take anything away from this post, it&rsquo;d be the entirety of this video. Watch it! You won&rsquo;t be disappointed as it delivers like no other talk you&rsquo;ve seen &ndash; &ldquo;brutally&rdquo; to the point giving you an idea about what it is like running real systems in production that the BEAM (Erlang VM) provides and that no other platform provides out of the box; not Haskell, not Scala, not Clojure, not OCaml." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wulymammoth.github.io/posts/why_i_love_elixir/" />
+<meta property="og:image" content="https://wulymammoth.github.io/"/>
+<meta property="article:published_time" content="2020-05-25T08:07:47-07:00" />
+<meta property="article:modified_time" content="2020-05-25T08:07:47-07:00" /><meta property="og:site_name" content="wulymammoth" />
+
+
+
+
+
+
+    <meta property="article:published_time" content="2020-05-25 08:07:47 -0700 PDT" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">cat friends.txt | awk &#39;{ print &#34;hello &#34; $1 }&#39;</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://wulymammoth.github.io/posts">Blog</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>8 minutes
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title">
+                <a href="https://wulymammoth.github.io/posts/why_i_love_elixir/">Why I Love Elixir (Erlang)</a>
+            </h1>
+
+            <div class="post-info">
+                    <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://wulymammoth.github.io/tags/beam">BEAM</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/clojure">Clojure</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/elixir">Elixir</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/erlang">Erlang</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/f">F#</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/haskell">Haskell</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/python">Python</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/ruby">Ruby</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/scala">Scala</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/programming-languages">programming-languages</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/software">software</a></span>
+                    </p>
+
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>1587 Words</p>
+
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-05-25 08:07 -0700</p>
+            </div>
+
+            <hr />
+
+            
+
+            <div class="post-content">
+                <h2 id="tldr">TL;DR</h2>
+<figure>
+    <img src="/media/goto_conf_sasa_juric.png"/> 
+</figure>
+
+<p>The screenshot is from the following talk by Saša Jurić, the author of <a href="https://www.manning.com/books/elixir-in-action">Elixir in Action</a>, being the first book that I had ever read on the language when I began. If I could get you to take anything away from this post, it&rsquo;d be the entirety of this video. <strong>Watch it!</strong> You won&rsquo;t be disappointed as it delivers like no other talk you&rsquo;ve seen &ndash; &ldquo;brutally&rdquo; to the point giving you an idea about what it is like running real systems in production that the BEAM (Erlang VM) provides and that no other platform provides out of the box; not Haskell, not Scala, not Clojure, not OCaml. You&rsquo;re going to be coming away with a wishlist of things that you wish that your language or platform had.
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/JvBT4XBdoUE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+</p>
+<hr>
+<h2 id="the-actual-things-that-i-love-language-features">the actual things that I love (language features)</h2>
+<p>I&rsquo;ve played with my fair share of programming languages &ndash; MIPS, C, C++, Rust, Golang, Ruby, Python, JavaScript, Java, Kotlin, Scala, Clojure, OCaml, Haskell. I haven&rsquo;t worked with them all in production or deployed them in systems used by others. I also don&rsquo;t claim to have deep knowledge of all of them.</p>
+<p>I always tell others that Elixir is a <code>mix</code>ture (pun intended) of some of people&rsquo;s favorite things from some of people&rsquo;s favorite popular programming languages. Below I list the ones that have stood out to me and exclude features from BEAM aka the Erlang virtual machine (VM), because the video in the TL;DR section above fills that in.</p>
+<h3 id="1-syntax-from-ruby">1. syntax from Ruby</h3>
+<p>If you&rsquo;ve ever worked with Ruby, the syntax will look very familiar to you. I&rsquo;m not a huge fan of <code>end</code> but there&rsquo;s a reason for why it exists</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir">defmodule <span style="color:#a6e22e">Foo</span>; end
+</code></pre></div><h3 id="2-docstrings-and-doctests-from-python">2. docstrings and doctests from Python</h3>
+<p>One of the biggest issues that professional developers have when adding comments to code is this idea known as &ldquo;decaying documentation&rdquo;. It simply implies that oft-forgotten is the update to comments (documentation) when a code change is performed. Python provided a facility called <a href="https://docs.python.org/2/library/doctest.html">doctests</a> to solve this problem &ndash; if a code example is provided in the &ldquo;comment&rdquo; a run of the test suite would reveal a test failure should that example no longer work after the code change.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir">defmodule <span style="color:#a6e22e">MyApp.Hello</span> do
+  <span style="color:#a6e22e">@moduledoc</span> <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">  This is the Hello module.
+</span><span style="color:#e6db74">  &#34;&#34;&#34;</span>
+  <span style="color:#a6e22e">@moduledoc</span> <span style="color:#e6db74">since</span>: <span style="color:#e6db74">&#34;1.0.0&#34;</span>
+
+  <span style="color:#a6e22e">@doc</span> <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">  Says hello to the given `name`.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  Returns `:ok`.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  </span><span style="color:#960050;background-color:#1e0010">##</span><span style="color:#e6db74"> Examples
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">      iex&gt; MyApp.Hello.world(:john)
+</span><span style="color:#e6db74">      :ok
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">  &#34;&#34;&#34;</span>
+  <span style="color:#a6e22e">@doc</span> <span style="color:#e6db74">since</span>: <span style="color:#e6db74">&#34;1.3.0&#34;</span>
+  def world(name) do
+    <span style="color:#a6e22e">IO</span><span style="color:#f92672">.</span>puts(<span style="color:#e6db74">&#34;hello </span><span style="color:#e6db74">#{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+  end
+end
+</code></pre></div><h3 id="3-comprehensions-from-python">3. comprehensions from Python</h3>
+<p>List comprehensions anyone? I care a lot about the ergonomics of a language and its ability to express declaratively what I want to do. While Python is a language that a lot of people love, I&rsquo;ve a lot of gripes with it, primarily that it promotes procedural code, but list comprehensions is certainly one of my favorite and expressive language features despite what I find to be a clunky <code>functools</code> module that seems like an awkward bolt-on. Guido, Python&rsquo;s creator, himself noted that Python had no intention of providing functional programming facilities &ndash; so needless to say, a bit of a second-class citizen.</p>
+<p>Squaring a list of numbers:</p>
+<p><strong>Python</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">[n <span style="color:#f92672">*</span> n <span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">5</span>)]
+</code></pre></div><p><strong>Elixir</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir">for n <span style="color:#f92672">&lt;-</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>], <span style="color:#e6db74">do</span>: n <span style="color:#f92672">*</span> n
+</code></pre></div><h3 id="4-protocols-for-polymorphism-from-clojure">4. protocols for polymorphism from Clojure</h3>
+<p>If you&rsquo;re familiar with interfaces (more like Golang than Java) in other languages, this is how it is done in Clojure and Elixir. This facility makes it simple for expanding the use of a behavior (functions, but not to be confused with Erlang/Elixir &ldquo;behaviours&rdquo;) to new types of data or schemas your application may need to adapt to next. But the secondary benefit is that it declares a set of functions anyone contributing to an open-source library written in Elixir can implement without mangling with existing source code (following the open/closed principle from SOLID)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#75715e"># protocol definition</span>
+defprotocol <span style="color:#a6e22e">Size</span> do
+  <span style="color:#a6e22e">@doc</span> <span style="color:#e6db74">&#34;Calculates the size (and not the length!) of a data structure&#34;</span>
+  def size(data)
+end
+
+<span style="color:#75715e"># protocol implementations</span>
+defimpl <span style="color:#a6e22e">Size</span>, <span style="color:#e6db74">for</span>: <span style="color:#a6e22e">BitString</span> do
+  def size(string), <span style="color:#e6db74">do</span>: byte_size(string)
+end
+
+defimpl <span style="color:#a6e22e">Size</span>, <span style="color:#e6db74">for</span>: <span style="color:#a6e22e">Map</span> do
+  def size(map), <span style="color:#e6db74">do</span>: map_size(map)
+end
+
+defimpl <span style="color:#a6e22e">Size</span>, <span style="color:#e6db74">for</span>: <span style="color:#a6e22e">Tuple</span> do
+  def size(tuple), <span style="color:#e6db74">do</span>: tuple_size(tuple)
+end
+
+</code></pre></div><h3 id="5-mix-build-tool-inspired-by-bundler-in-ruby">5. mix (build tool) inspired by Bundler in Ruby</h3>
+<p>Tooling in some language ecosystems is nil or a second-class citizen. One thing about the Ruby and Elixir communities are that they treat them as first-class citizens giving you tools that don&rsquo;t get in your way and are just a pleasure to work with. Those of you that have spent any significant time with JavaScript, Ruby, or Rust may be familiar with the name, Yehuda Katz, who served as a major influence and mentor to José Valim (Elixir&rsquo;s BDFL/creator) when he was a Google Summer of Code participant/mentee &ndash; with both having been Rails core team members. Katz is known for more than Ruby on Rails &ndash; he&rsquo;s the creator of quite a number of well-loved build tools in various ecosystems: Bundler (Ruby), Cargo (Rust), and Yarn (JavaScript). Elixir follows in this spirit by doing the same with Mix.</p>
+<h3 id="6-lazy-evaluation-inspired-by-scalaz-in-scala-and-haskell">6. lazy evaluation inspired by Scalaz in Scala and Haskell</h3>
+<p>If you&rsquo;re familiar with reducees, iteratees, iterators, generators, or just the idea of lazy-loading to reduce space complexity or the memory footprint of code that could eagerly load/buffer all data into memory before operating on them, and perhaps doing it all again, could be expensive, then you are right. Not every language has facilities to help those with this:</p>
+<p>Multiply the range between <code>[1, 100000]</code> by <code>3</code>, then filter the odds, and sum them up:</p>
+<p><strong>Ruby</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#75715e"># expressive, but expensive</span>
+(<span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">100000</span>)<span style="color:#f92672">.</span>map { <span style="color:#f92672">|</span>n<span style="color:#f92672">|</span> n <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span> }<span style="color:#f92672">.</span>select { <span style="color:#f92672">|</span>n<span style="color:#f92672">|</span> n <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> }<span style="color:#f92672">.</span>sum
+</code></pre></div><p><strong>Elixir</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#75715e"># eager - expressive, but expensive</span>
+import <span style="color:#a6e22e">Enum</span>
+<span style="color:#75715e"># the `&amp;` is known as the capture operator,</span>
+<span style="color:#75715e"># capturing the argument by its number in an anonymous function,</span>
+<span style="color:#75715e"># but one may think of the expression as a lambda</span>
+<span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">100_000</span> <span style="color:#f92672">|&gt;</span> map(<span style="color:#f92672">&amp;</span> &amp;1 <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>) <span style="color:#f92672">|&gt;</span> filter(<span style="color:#f92672">&amp;</span> rem(&amp;1, <span style="color:#ae81ff">2</span>) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) <span style="color:#f92672">|&gt;</span> sum()
+
+<span style="color:#75715e"># lazy - expressive, but inexpensive</span>
+import <span style="color:#a6e22e">Stream</span>
+<span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">100_000</span> <span style="color:#f92672">|&gt;</span> map(<span style="color:#f92672">&amp;</span> &amp;1 <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>) <span style="color:#f92672">|&gt;</span> filter(<span style="color:#f92672">&amp;</span> rem(&amp;1, <span style="color:#ae81ff">2</span>) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) <span style="color:#f92672">|&gt;</span> <span style="color:#a6e22e">Enum</span><span style="color:#f92672">.</span>sum()
+</code></pre></div><h3 id="7-stream-data-and-property-based-testing-from-haskell">7. stream data and property-based testing from Haskell</h3>
+<p>For the functional programming and purists hailing from Haskell land, you may be familiar with QuickCheck and property-based testing. The basic premise is that most of us write &ldquo;example-based&rdquo; unit tests whereby the developer is left up to the task of coming up with and are limited to the examples (i.e., corner/edge cases) they&rsquo;re familiar with at the time of authoring some bit of software. Property-based testing is about random data generation expands this coverage to aid the developer in asserting some guarantees about the code and the properties that it satisfies. It won&rsquo;t cover all possible values that a function can handle, but does help in reducing the number of bugs in deployed software. Haskell&rsquo;s QuickCheck has inspired similar external libraries in the Python, Ruby, and Rust communities that I&rsquo;m familiar with.</p>
+<h3 id="8-pipe-operator-from-standard-ml-sml-or-unix">8. pipe operator from standard ML (SML) or Unix</h3>
+<p>If you&rsquo;ve ever done <code>cat foo.txt | grep 'bar'</code> from a shell you&rsquo;re familiar with what <code>|&gt;</code> does in Elixir. However, in most programming languages that most of us have spent time in, code looks like this:</p>
+<p>Where the ordering of operations happen from inside out&hellip;</p>
+<pre><code>foo(bar(baz(new_function(other_function(data)))))
+</code></pre><p>Elixir&rsquo;s pipe operator makes the ordering explicit and obvious:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir">data
+<span style="color:#f92672">|&gt;</span> other_function()
+<span style="color:#f92672">|&gt;</span> new_function()
+<span style="color:#f92672">|&gt;</span> baz()
+<span style="color:#f92672">|&gt;</span> bar()
+<span style="color:#f92672">|&gt;</span> foo()
+
+<span style="color:#75715e"># - OR -</span>
+data <span style="color:#f92672">|&gt;</span> other_function() <span style="color:#f92672">|&gt;</span> new_function() <span style="color:#f92672">|&gt;</span> baz() <span style="color:#f92672">|&gt;</span> bar() <span style="color:#f92672">|&gt;</span> foo()
+</code></pre></div><hr>
+<h2 id="my-introduction-to-elixir-background">my introduction to Elixir (background)</h2>
+<p>I was first introduced to Elixir back in 2014 when I had met someone that ran a local Elixir meet-up before anyone knew what the language was. This was all before The Phoenix web framework existed. Working mostly on the web and in JavaScript and some NodeJS at the time, I didn&rsquo;t take a gander at all &ndash; very different from my approach and intrigue with programming languages now.</p>
+<p>However, back in 2016, I began to hear murmurs of Elixir at the company that I was employed with. I had a CTO that was always somewhat enamored with the shiny new thing. He and our principal engineer (that had some Erlang experience) test-drove Elixir in production with an inventory service that aided our warehouse ops &ndash; this company used real physical storage for storing all its products. It went successfully, and I was asked if I wanted to give it a whirl on the core products team. I remember thinking, &ldquo;hell yea!&rdquo; This provided me an opportunity to understand what the friend that I had met in 2014 was raving about, but also an opportunity to play with and deploy a truly (albeit not pure) functional language and platform into production.</p>
+<p>For the unfamiliar, the Elixir programming language was created by José Valim, a Rails core team member that ranked as one of the <a href="https://contributors.rubyonrails.org/">top 3 (#6 at the time of this post) contributors</a> of all time. To say that he was prolific is putting it lightly. After attempts at making inroads with concurrency on Rails with mixed success, he discovered Erlang through a tour of languages, by reading a book titled, <a href="https://pragprog.com/book/btlang/seven-languages-in-seven-weeks">Seven Languages in Seven Weeks</a> by Bruce Tate who would eventually author one of the first Elixir books along with <a href="https://pragprog.com/book/phoenix/programming-phoenix">Programming Phoenix</a> along with Chris McCord, the primary author of the popular framework built with Elixir.</p>
+<hr>
+<p>I&rsquo;m not a classically trained computer scientist or software engineer. but my curiosity has led me down the pat</p>
+
+            </div>
+        </article>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h">Read other posts</span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+
+                    
+                        <span class="button next">
+                            <a href="https://wulymammoth.github.io/posts/law-of-demeter/">
+                                <span class="button__text">Violating the Law of Demeter</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
+        
+            <div id="comments" class="thin">
+                <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "wulymammoth" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2020</span>
+            
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span> <a href="https://wulymammoth.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+
+
+
+    </body>
+</html>

@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 23 May 2020 09:44:59 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 25 May 2020 08:07:47 -0700</lastBuildDate>
     
 	<atom:link href="https://wulymammoth.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Why I Love Elixir (Erlang)</title>
+      <link>https://wulymammoth.github.io/posts/why_i_love_elixir/</link>
+      <pubDate>Mon, 25 May 2020 08:07:47 -0700</pubDate>
+      
+      <guid>https://wulymammoth.github.io/posts/why_i_love_elixir/</guid>
+      <description>TL;DR   The screenshot is from the following talk by Saša Jurić, the author of Elixir in Action, being the first book that I had ever read on the language when I began. If I could get you to take anything away from this post, it&amp;rsquo;d be the entirety of this video. Watch it! You won&amp;rsquo;t be disappointed as it delivers like no other talk you&amp;rsquo;ve seen &amp;ndash; &amp;ldquo;brutally&amp;rdquo; to the point giving you an idea about what it is like running real systems in production that the BEAM (Erlang VM) provides and that no other platform provides out of the box; not Haskell, not Scala, not Clojure, not OCaml.</description>
+    </item>
     
     <item>
       <title>Violating the Law of Demeter</title>
