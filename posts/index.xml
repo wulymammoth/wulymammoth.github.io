@@ -33,7 +33,11 @@
 <p>I always tell others that Elixir is a <code>mix</code>ture (pun intended) of some of people&rsquo;s favorite things from some of people&rsquo;s favorite popular programming languages. Below I list the ones that have stood out to me and exclude features from BEAM aka the Erlang virtual machine (VM), because the video in the TL;DR section above fills that in.</p>
 <h3 id="1-syntax-from-ruby">1. syntax from Ruby</h3>
 <p>If you&rsquo;ve ever worked with Ruby, the syntax will look very familiar to you. I&rsquo;m not a huge fan of <code>end</code> but there&rsquo;s a reason for why it exists</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir">defmodule <span style="color:#a6e22e">Foo</span>; end
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir">defmodule <span style="color:#a6e22e">Foo</span> do
+  def bar do
+    <span style="color:#a6e22e">IO</span><span style="color:#f92672">.</span>puts(<span style="color:#e6db74">&#34;bar&#34;</span>)
+  end
+end
 </code></pre></div><h3 id="2-docstrings-and-doctests-from-python">2. docstrings and doctests from Python</h3>
 <p>One of the biggest issues that professional developers have when adding comments to code is this idea known as &ldquo;decaying documentation&rdquo;. It simply implies that oft-forgotten is the update to comments (documentation) when a code change is performed. Python provided a facility called <a href="https://docs.python.org/2/library/doctest.html">doctests</a> to solve this problem &ndash; if a code example is provided in the &ldquo;comment&rdquo; a run of the test suite would reveal a test failure should that example no longer work after the code change.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir">defmodule <span style="color:#a6e22e">MyApp.Hello</span> do
