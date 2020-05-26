@@ -18,7 +18,9 @@
       <pubDate>Mon, 25 May 2020 08:07:47 -0700</pubDate>
       
       <guid>https://wulymammoth.github.io/posts/why_i_love_elixir/</guid>
-      <description>TL;DR   The screenshot is from the following talk by Saša Jurić, the author of Elixir in Action, being the first book that I had ever read on the language when I began. If I could get you to take anything away from this post, it&amp;rsquo;d be the entirety of this video. Watch it! You won&amp;rsquo;t be disappointed as it delivers like no other talk you&amp;rsquo;ve seen &amp;ndash; &amp;ldquo;brutally&amp;rdquo; to the point giving you an idea about what it is like running real systems in production that the BEAM (Erlang VM) provides and that no other platform provides out of the box; not Haskell, not Scala, not Clojure, not OCaml.</description>
+      <description>TL;DR Ever use WhatsApp? It&amp;rsquo;s arguably the most widely used messaging application across the world. Its original team of approximately 50 engineers scaled it to nearly a billion (900 million) users before its Facebook acquisition. Perhaps this may help you answer &amp;ldquo;how&amp;rdquo; that happened&amp;hellip;
+One Hacker News comment:
+ Basically they&amp;rsquo;re a silicon valley company who&amp;rsquo;ve done everything that&amp;rsquo;s exactly the opposite of standard silicon valley advise &amp;ndash; bootstrapped for first few years, complete apathy or even aversion to silicon valley marketing.</description>
     </item>
     
     <item>

@@ -5,7 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="">
-<meta name="description" content="TL;DR   The screenshot is from the following talk by Saša Jurić, the author of Elixir in Action, being the first book that I had ever read on the language when I began. If I could get you to take anything away from this post, it&amp;rsquo;d be the entirety of this video. Watch it! You won&amp;rsquo;t be disappointed as it delivers like no other talk you&amp;rsquo;ve seen &amp;ndash; &amp;ldquo;brutally&amp;rdquo; to the point giving you an idea about what it is like running real systems in production that the BEAM (Erlang VM) provides and that no other platform provides out of the box; not Haskell, not Scala, not Clojure, not OCaml." />
+<meta name="description" content="TL;DR Ever use WhatsApp? It&amp;rsquo;s arguably the most widely used messaging application across the world. Its original team of approximately 50 engineers scaled it to nearly a billion (900 million) users before its Facebook acquisition. Perhaps this may help you answer &amp;ldquo;how&amp;rdquo; that happened&amp;hellip;
+One Hacker News comment:
+ Basically they&amp;rsquo;re a silicon valley company who&amp;rsquo;ve done everything that&amp;rsquo;s exactly the opposite of standard silicon valley advise &amp;ndash; bootstrapped for first few years, complete apathy or even aversion to silicon valley marketing." />
 <meta name="keywords" content=", BEAM, Clojure, Elixir, Erlang, F#, Haskell, Python, Ruby, Scala, programming-languages, software" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -33,10 +35,12 @@
 
 
 <meta itemprop="name" content="Why I Love Elixir (Erlang)">
-<meta itemprop="description" content="TL;DR   The screenshot is from the following talk by Saša Jurić, the author of Elixir in Action, being the first book that I had ever read on the language when I began. If I could get you to take anything away from this post, it&rsquo;d be the entirety of this video. Watch it! You won&rsquo;t be disappointed as it delivers like no other talk you&rsquo;ve seen &ndash; &ldquo;brutally&rdquo; to the point giving you an idea about what it is like running real systems in production that the BEAM (Erlang VM) provides and that no other platform provides out of the box; not Haskell, not Scala, not Clojure, not OCaml.">
+<meta itemprop="description" content="TL;DR Ever use WhatsApp? It&rsquo;s arguably the most widely used messaging application across the world. Its original team of approximately 50 engineers scaled it to nearly a billion (900 million) users before its Facebook acquisition. Perhaps this may help you answer &ldquo;how&rdquo; that happened&hellip;
+One Hacker News comment:
+ Basically they&rsquo;re a silicon valley company who&rsquo;ve done everything that&rsquo;s exactly the opposite of standard silicon valley advise &ndash; bootstrapped for first few years, complete apathy or even aversion to silicon valley marketing.">
 <meta itemprop="datePublished" content="2020-05-25T08:07:47-07:00" />
 <meta itemprop="dateModified" content="2020-05-25T08:07:47-07:00" />
-<meta itemprop="wordCount" content="1869">
+<meta itemprop="wordCount" content="1968">
 <meta itemprop="image" content="https://wulymammoth.github.io/"/>
 
 
@@ -46,12 +50,16 @@
 <meta name="twitter:image" content="https://wulymammoth.github.io/"/>
 
 <meta name="twitter:title" content="Why I Love Elixir (Erlang)"/>
-<meta name="twitter:description" content="TL;DR   The screenshot is from the following talk by Saša Jurić, the author of Elixir in Action, being the first book that I had ever read on the language when I began. If I could get you to take anything away from this post, it&rsquo;d be the entirety of this video. Watch it! You won&rsquo;t be disappointed as it delivers like no other talk you&rsquo;ve seen &ndash; &ldquo;brutally&rdquo; to the point giving you an idea about what it is like running real systems in production that the BEAM (Erlang VM) provides and that no other platform provides out of the box; not Haskell, not Scala, not Clojure, not OCaml."/>
+<meta name="twitter:description" content="TL;DR Ever use WhatsApp? It&rsquo;s arguably the most widely used messaging application across the world. Its original team of approximately 50 engineers scaled it to nearly a billion (900 million) users before its Facebook acquisition. Perhaps this may help you answer &ldquo;how&rdquo; that happened&hellip;
+One Hacker News comment:
+ Basically they&rsquo;re a silicon valley company who&rsquo;ve done everything that&rsquo;s exactly the opposite of standard silicon valley advise &ndash; bootstrapped for first few years, complete apathy or even aversion to silicon valley marketing."/>
 
 
 
     <meta property="og:title" content="Why I Love Elixir (Erlang)" />
-<meta property="og:description" content="TL;DR   The screenshot is from the following talk by Saša Jurić, the author of Elixir in Action, being the first book that I had ever read on the language when I began. If I could get you to take anything away from this post, it&rsquo;d be the entirety of this video. Watch it! You won&rsquo;t be disappointed as it delivers like no other talk you&rsquo;ve seen &ndash; &ldquo;brutally&rdquo; to the point giving you an idea about what it is like running real systems in production that the BEAM (Erlang VM) provides and that no other platform provides out of the box; not Haskell, not Scala, not Clojure, not OCaml." />
+<meta property="og:description" content="TL;DR Ever use WhatsApp? It&rsquo;s arguably the most widely used messaging application across the world. Its original team of approximately 50 engineers scaled it to nearly a billion (900 million) users before its Facebook acquisition. Perhaps this may help you answer &ldquo;how&rdquo; that happened&hellip;
+One Hacker News comment:
+ Basically they&rsquo;re a silicon valley company who&rsquo;ve done everything that&rsquo;s exactly the opposite of standard silicon valley advise &ndash; bootstrapped for first few years, complete apathy or even aversion to silicon valley marketing." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wulymammoth.github.io/posts/why_i_love_elixir/" />
 <meta property="og:image" content="https://wulymammoth.github.io/"/>
@@ -124,7 +132,7 @@
     <main class="post">
 
         <div class="post-info">
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>9 minutes
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>10 minutes
 
             
 
@@ -141,7 +149,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://wulymammoth.github.io/tags/beam">BEAM</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/clojure">Clojure</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/elixir">Elixir</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/erlang">Erlang</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/f">F#</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/haskell">Haskell</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/python">Python</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/ruby">Ruby</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/scala">Scala</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/programming-languages">programming-languages</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/software">software</a></span>
                     </p>
 
-                <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>1869 Words</p>
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>1968 Words</p>
 
                 <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-05-25 08:07 -0700</p>
             </div>
@@ -152,6 +160,15 @@
 
             <div class="post-content">
                 <h2 id="tldr">TL;DR</h2>
+<p>Ever use WhatsApp? It&rsquo;s arguably the most widely used messaging application across the world. Its original team of approximately 50 engineers scaled it to nearly a billion (900 million) users before its Facebook acquisition. Perhaps this may help you answer &ldquo;how&rdquo; that happened&hellip;</p>
+<p>One <a href="https://news.ycombinator.com/item?id=10225096">Hacker News</a> comment:</p>
+<blockquote>
+<p><em>Basically they&rsquo;re a silicon valley company who&rsquo;ve done everything that&rsquo;s exactly the opposite of standard silicon valley advise &ndash; bootstrapped for first few years, complete apathy or even aversion to silicon valley marketing.</em></p>
+</blockquote>
+<p>Another <a href="https://news.ycombinator.com/item?id=10225096">Hacker News</a> comment:</p>
+<blockquote>
+<p><em>I interviewed with them recently. They claimed their success was due to picking up Erlang.</em></p>
+</blockquote>
 <figure>
     <img src="/media/goto_conf_sasa_juric.png"/> 
 </figure>
