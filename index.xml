@@ -40,8 +40,7 @@ This brings with it something that I&amp;rsquo;ve already seen in other language
       <pubDate>Sat, 23 May 2020 09:14:51 -0700</pubDate>
       
       <guid>https://wulymammoth.github.io/posts/my-first-post/</guid>
-      <description>Bringing back my blog, particularly for technical musings, but also as a semi-infrequently updated journal
-$ cat friends.txt | awk &amp;#39;{ print &amp;#34;👋 &amp;#34; %1 &amp;#34;!&amp;#34; }&amp;#39; </description>
+      <description>$ cat friends.txt | awk &amp;#39;{ print &amp;#34;👋 &amp;#34; $1 &amp;#34;!&amp;#34; }&amp;#39; I&amp;rsquo;ve never been much of a blogger, but I did love building websites as a teenager. I had a technical blog at one point until I stopped paying for the domain and hosting. Given that the world is in a crisis right now, I&amp;rsquo;ve had a lot of time to engage with technical communities like I never have before as well as my own existence and redefining my purpose.</description>
     </item>
     
   </channel>

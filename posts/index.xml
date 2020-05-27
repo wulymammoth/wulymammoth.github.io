@@ -331,11 +331,17 @@ This brings with it something that I&amp;rsquo;ve already seen in other language
             <pubDate>Sat, 23 May 2020 09:14:51 -0700</pubDate>
             
             <guid>https://wulymammoth.github.io/posts/my-first-post/</guid>
-            <description>Bringing back my blog, particularly for technical musings, but also as a semi-infrequently updated journal
-$ cat friends.txt | awk &amp;#39;{ print &amp;#34;👋 &amp;#34; %1 &amp;#34;!&amp;#34; }&amp;#39; </description>
-            <content type="html"><![CDATA[<p>Bringing back my blog, particularly for technical musings, but also as a semi-infrequently updated journal</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat friends.txt | awk <span style="color:#e6db74">&#39;{ print &#34;👋 &#34; %1 &#34;!&#34; }&#39;</span>
-</code></pre></div>]]></content>
+            <description>$ cat friends.txt | awk &amp;#39;{ print &amp;#34;👋 &amp;#34; $1 &amp;#34;!&amp;#34; }&amp;#39; I&amp;rsquo;ve never been much of a blogger, but I did love building websites as a teenager. I had a technical blog at one point until I stopped paying for the domain and hosting. Given that the world is in a crisis right now, I&amp;rsquo;ve had a lot of time to engage with technical communities like I never have before as well as my own existence and redefining my purpose.</description>
+            <content type="html"><![CDATA[<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat friends.txt | awk <span style="color:#e6db74">&#39;{ print &#34;👋 &#34; $1 &#34;!&#34; }&#39;</span>
+</code></pre></div><p>I&rsquo;ve never been much of a blogger, but I did love building websites as a teenager. I had a technical blog at one point until I stopped paying for the domain and hosting. Given that the world is in a crisis right now, I&rsquo;ve had a lot of time to engage with technical communities like I never have before as well as my own existence and redefining my purpose. Below are a few reasons that I&rsquo;ve decided to give myself a platform again.</p>
+<ol>
+<li>I have many conversations with many people and I&rsquo;d like to be able to reference them from time to time</li>
+<li>Things come out of the first point above, that I recollect a lot and share with others, so it&rsquo;s nice to have a place to direct them to</li>
+<li>I suck at actually journaling and this is just a shoddy effort at doing so</li>
+<li>I keep a lot of technical notes and they&rsquo;re organized by topic, but not time. I think a healthy relationship through revisiting my sometimes misguided and former thoughts is worth recounting and good for seeing progress or growth</li>
+<li>I don&rsquo;t have a place for my other (non-technical) thoughts, so here&rsquo;s a shot at that</li>
+</ol>
+]]></content>
         </item>
         
     </channel>
