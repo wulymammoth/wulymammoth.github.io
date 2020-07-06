@@ -36,7 +36,7 @@ end
     <span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">3</span>
     <span style="color:#f92672">|&gt;</span> <span style="color:#a6e22e">Enum</span><span style="color:#f92672">.</span>map(<span style="color:#f92672">&amp;</span> &amp;1 <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>)
     <span style="color:#f92672">|&gt;</span> <span style="color:#a6e22e">Adder</span><span style="color:#f92672">.</span>add(<span style="color:#ae81ff">1</span>)
-    <span style="color:#f92672">|&gt;</span> (fn result <span style="color:#f92672">-&gt;</span> result <span style="color:#f92672">==</span> [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>] end)<span style="color:#f92672">.</span>()
+    <span style="color:#f92672">|&gt;</span> (fn result <span style="color:#f92672">-&gt;</span> assert result <span style="color:#f92672">==</span> [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>] end)<span style="color:#f92672">.</span>()
   end
 end
 </code></pre></div><h2 id="terse-with-pipe">terse (with pipe)</h2>
@@ -46,7 +46,7 @@ end
     <span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">3</span>
     <span style="color:#f92672">|&gt;</span> <span style="color:#a6e22e">Enum</span><span style="color:#f92672">.</span>map(<span style="color:#f92672">&amp;</span> &amp;1 <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>)
     <span style="color:#f92672">|&gt;</span> <span style="color:#a6e22e">Adder</span><span style="color:#f92672">.</span>add(<span style="color:#ae81ff">1</span>)
-    <span style="color:#f92672">|&gt;</span> (<span style="color:#f92672">&amp;</span> &amp;1 <span style="color:#f92672">==</span> [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>])<span style="color:#f92672">.</span>()
+    <span style="color:#f92672">|&gt;</span> (<span style="color:#f92672">&amp;</span> assert &amp;1 <span style="color:#f92672">==</span> [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>])<span style="color:#f92672">.</span>()
   end
 end
 </code></pre></div>]]></content>
