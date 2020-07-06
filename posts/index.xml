@@ -49,6 +49,48 @@ end
     <span style="color:#f92672">|&gt;</span> (<span style="color:#f92672">&amp;</span> assert &amp;1 <span style="color:#f92672">==</span> [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>])<span style="color:#f92672">.</span>()
   end
 end
+</code></pre></div><h2 id="an-option-for-those-that-use-elixirs-formatter">an option for those that use Elixir&rsquo;s formatter</h2>
+<p>If you or your team uses Elixir&rsquo;s formatter, then you&rsquo;re going to end up with something like the following where the nice whitespace that gives your arguments some room to breathe is removed. One thing that I&rsquo;ve done is add an enhancement (using a macro) function into <code>test/test_helper.exs</code> that becomes available to tests that <code>use TestHelper</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir">defmodule <span style="color:#a6e22e">AdderTest</span> do
+  test <span style="color:#e6db74">&#34;add&#34;</span> do
+    <span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">3</span>
+    <span style="color:#f92672">|&gt;</span> <span style="color:#a6e22e">Enum</span><span style="color:#f92672">.</span>map(<span style="color:#f92672">&amp;</span> &amp;1 <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>)
+    <span style="color:#f92672">|&gt;</span> <span style="color:#a6e22e">Adder</span><span style="color:#f92672">.</span>add(<span style="color:#ae81ff">1</span>)
+    <span style="color:#f92672">|&gt;</span> (<span style="color:#f92672">&amp;</span>assert(&amp;1 <span style="color:#f92672">==</span> [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>]))<span style="color:#f92672">.</span>() <span style="color:#75715e"># 🤮</span>
+  end
+end
+</code></pre></div><p>Here&rsquo;s what we can do</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#75715e"># test/test_helper.exs</span>
+
+<span style="color:#a6e22e">ExUnit</span><span style="color:#f92672">.</span>start()
+
+defmodule <span style="color:#a6e22e">TestHelper</span> do
+  defmacro __using__(_opts) do
+    quote do
+      import <span style="color:#a6e22e">ExUnit.Assertions</span>, <span style="color:#e6db74">only</span>: [<span style="color:#e6db74">assert</span>: <span style="color:#ae81ff">1</span>]
+
+      <span style="color:#75715e"># we can name this whatever we&#39;d like,</span>
+      <span style="color:#75715e"># but &#34;is&#34; makes sense to me in most cases</span>
+      <span style="color:#75715e"># 👇</span>
+      def is(result, expectation) do
+        assert result <span style="color:#f92672">==</span> expectation
+      end
+    end
+  end
+end
+
+<span style="color:#75715e"># test/adder_test.exs</span>
+
+defmodule <span style="color:#a6e22e">AdderTest</span> do
+  use <span style="color:#a6e22e">TestHelper</span> <span style="color:#75715e"># 👈 included here</span>
+
+  test <span style="color:#e6db74">&#34;add&#34;</span> do
+    <span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">3</span>
+    <span style="color:#f92672">|&gt;</span> <span style="color:#a6e22e">Enum</span><span style="color:#f92672">.</span>map(<span style="color:#f92672">&amp;</span> &amp;1 <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>)
+    <span style="color:#f92672">|&gt;</span> <span style="color:#a6e22e">Adder</span><span style="color:#f92672">.</span>add(<span style="color:#ae81ff">1</span>)
+    <span style="color:#f92672">|&gt;</span> is([<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>]) <span style="color:#75715e"># 👈 used here</span>
+  end
+end
 </code></pre></div>]]></content>
         </item>
         
