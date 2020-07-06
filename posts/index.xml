@@ -6,8 +6,51 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Mon, 25 May 2020 08:07:47 -0700</lastBuildDate>
+        <lastBuildDate>Sun, 05 Jul 2020 16:40:51 -0700</lastBuildDate>
         <atom:link href="https://wulymammoth.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Elixir Pipe Into Assertion</title>
+            <link>https://wulymammoth.github.io/posts/elixir-pipe-into-assertion/</link>
+            <pubDate>Sun, 05 Jul 2020 16:40:51 -0700</pubDate>
+            
+            <guid>https://wulymammoth.github.io/posts/elixir-pipe-into-assertion/</guid>
+            <description>Love the pipe operator? Miss them in tests with ExUnit when the result is derived from a pipeline of operations necessitating an intermediate variable, like result? I did&amp;hellip;
+typical test assertion (no pipe operator) defmodule AdderTest do test &amp;#34;add&amp;#34; do result = 1..3 |&amp;gt; Enum.map(&amp;amp; &amp;amp;1 * 2) # [2, 4, 6] |&amp;gt; Adder.add(1) # [3, 5, 7] assert result == [3, 5, 7] end end verbose (with pipe) Uses an anonymous function - NOTE: must invoke with dot-syntax</description>
+            <content type="html"><![CDATA[<p>Love the pipe operator? Miss them in tests with <code>ExUnit</code> when the result is derived from a pipeline of operations necessitating an intermediate variable, like <code>result</code>? I did&hellip;</p>
+<h2 id="typical-test-assertion-no-pipe-operator">typical test assertion (no pipe operator)</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir">defmodule <span style="color:#a6e22e">AdderTest</span> do
+  test <span style="color:#e6db74">&#34;add&#34;</span> do
+    result <span style="color:#f92672">=</span>
+      <span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">3</span>
+      <span style="color:#f92672">|&gt;</span> <span style="color:#a6e22e">Enum</span><span style="color:#f92672">.</span>map(<span style="color:#f92672">&amp;</span> &amp;1 <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>) <span style="color:#75715e"># [2, 4, 6]</span>
+      <span style="color:#f92672">|&gt;</span> <span style="color:#a6e22e">Adder</span><span style="color:#f92672">.</span>add(<span style="color:#ae81ff">1</span>) <span style="color:#75715e"># [3, 5, 7]</span>
+
+    assert result <span style="color:#f92672">==</span> [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>]
+  end
+end
+</code></pre></div><h2 id="verbose-with-pipe">verbose (with pipe)</h2>
+<p>Uses an anonymous function - NOTE: must invoke with dot-syntax</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir">defmodule <span style="color:#a6e22e">AdderTest</span> do
+  test <span style="color:#e6db74">&#34;add&#34;</span> do
+    <span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">3</span>
+    <span style="color:#f92672">|&gt;</span> <span style="color:#a6e22e">Enum</span><span style="color:#f92672">.</span>map(<span style="color:#f92672">&amp;</span> &amp;1 <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>)
+    <span style="color:#f92672">|&gt;</span> <span style="color:#a6e22e">Adder</span><span style="color:#f92672">.</span>add(<span style="color:#ae81ff">1</span>)
+    <span style="color:#f92672">|&gt;</span> (fn result <span style="color:#f92672">-&gt;</span> result <span style="color:#f92672">==</span> [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>] end)<span style="color:#f92672">.</span>()
+  end
+end
+</code></pre></div><h2 id="terse-with-pipe">terse (with pipe)</h2>
+<p>I favor this because it&rsquo;s terse and concise</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir">defmodule <span style="color:#a6e22e">AdderTest</span> do
+  test <span style="color:#e6db74">&#34;add&#34;</span> do
+    <span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">3</span>
+    <span style="color:#f92672">|&gt;</span> <span style="color:#a6e22e">Enum</span><span style="color:#f92672">.</span>map(<span style="color:#f92672">&amp;</span> &amp;1 <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>)
+    <span style="color:#f92672">|&gt;</span> <span style="color:#a6e22e">Adder</span><span style="color:#f92672">.</span>add(<span style="color:#ae81ff">1</span>)
+    <span style="color:#f92672">|&gt;</span> (<span style="color:#f92672">&amp;</span> &amp;1 <span style="color:#f92672">==</span> [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>])<span style="color:#f92672">.</span>()
+  end
+end
+</code></pre></div>]]></content>
+        </item>
         
         <item>
             <title>Why I Love Elixir (Erlang)</title>
