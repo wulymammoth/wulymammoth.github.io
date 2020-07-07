@@ -24,7 +24,7 @@ solution : Please, for the love of anything, stop (pressing up multiple times an
 <p><strong>solution</strong> : Please, for the love of anything, stop (pressing up multiple times and eyeballing)! This is ridiculously inefficient! Three things!</p>
 <ol>
 <li>
-<p>To just run the previous command without moving off your keyboard&rsquo;s home row: <code>ctrl-p</code> followed by the <code>&lt;Enter&gt;</code> key</p>
+<p>To just run the previous command without moving off your keyboard&rsquo;s home row: <code>ctrl-p</code> (mnemonic for &ldquo;previous&rdquo;) followed by the <code>&lt;Enter&gt;</code> key. Went past your command? <code>ctrl-n</code> (mnemonic for &ldquo;next&rdquo;).</p>
 </li>
 <li>
 <p>If you know it&rsquo;s not the last command, the following is probably the utility that I rely on most &ndash; <code>reverse-i-search</code>. This utility treats your <code>history</code> like a stack and (fuzzy) finds the most recent match for any term/keyword that exists in your history. To initialize it, hit <code>ctrl-r</code>. Once you&rsquo;ve typed something it should arrive at your first match. If the first match isn&rsquo;t what you&rsquo;re looking for, then hit <code>ctrl-r</code> again and it&rsquo;ll go to the next previous match. And if you&rsquo;ve gone past it, use <code>ctrl-s</code>/<code>&lt;Shift&gt;-ctrl-s</code> (depending on your operating system). To exit the search, use <code>ctrl-g</code>.</p>
