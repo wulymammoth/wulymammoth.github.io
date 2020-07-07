@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 05 Jul 2020 16:40:51 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jul 2020 09:27:11 -0700</lastBuildDate>
     
 	<atom:link href="https://wulymammoth.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Shell Shock</title>
+      <link>https://wulymammoth.github.io/posts/shell-shock/</link>
+      <pubDate>Mon, 06 Jul 2020 09:27:11 -0700</pubDate>
+      
+      <guid>https://wulymammoth.github.io/posts/shell-shock/</guid>
+      <description>Ever wonder if there&amp;rsquo;s a better way to use your terminal and shell? Feeling a little clunky? Here are a few good-to-knows for those of us that have never dabbled in sys-admin or dev-ops work
+ problem : Do I have to push up (arrow) multiple times to find a previous command that I need to run? What if I just want to run the last command again?
+solution : Please, for the love of anything, stop (pressing up multiple times and eyeballing)!</description>
+    </item>
     
     <item>
       <title>Elixir Pipe Into Assertion</title>
