@@ -40,7 +40,7 @@ solution : Please, for the love of anything, stop (pressing up multiple times an
 solution : Please, for the love of anything, stop (pressing up multiple times and eyeballing)!">
 <meta itemprop="datePublished" content="2020-07-06T09:27:11-07:00" />
 <meta itemprop="dateModified" content="2020-07-06T09:27:11-07:00" />
-<meta itemprop="wordCount" content="634">
+<meta itemprop="wordCount" content="915">
 <meta itemprop="image" content="https://wulymammoth.github.io/"/>
 
 
@@ -132,7 +132,7 @@ solution : Please, for the love of anything, stop (pressing up multiple times an
     <main class="post">
 
         <div class="post-info">
-            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>3 minutes
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>5 minutes
 
             
 
@@ -149,7 +149,7 @@ solution : Please, for the love of anything, stop (pressing up multiple times an
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://wulymammoth.github.io/tags/bash">bash</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/efficiency">efficiency</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/shell">shell</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/terminal">terminal</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/zsh">zsh</a></span>
                     </p>
 
-                <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>634 Words</p>
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>915 Words</p>
 
                 <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-07-06 09:27 -0700</p>
             </div>
@@ -172,6 +172,26 @@ solution : Please, for the love of anything, stop (pressing up multiple times an
 </li>
 </ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#f92672">(</span>reverse-i-search<span style="color:#f92672">)</span><span style="color:#e6db74">`</span><span style="color:#960050;background-color:#1e0010">&#39;</span>:
+</code></pre></div><p>Let&rsquo;s say that our history looks like this. NOTE: the numbers on the left correspond to the line number in my bash history</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ history
+<span style="color:#ae81ff">2311</span>  ls -l
+<span style="color:#ae81ff">2312</span>  rg --files | fzf
+<span style="color:#ae81ff">2313</span>  vim reverse_singly_linked_list.py
+<span style="color:#ae81ff">2314</span>  python -m unittest reverse_singly_linked_list.py
+<span style="color:#ae81ff">2315</span>  ping google.com
+<span style="color:#ae81ff">2317</span>  mix routes
+<span style="color:#ae81ff">2318</span>  mix phx.routes
+<span style="color:#ae81ff">2319</span>  git branch
+<span style="color:#ae81ff">2320</span>  git log -3 --reverse
+<span style="color:#ae81ff">2322</span>  htop
+<span style="color:#ae81ff">2326</span>  jobs
+<span style="color:#ae81ff">2327</span>  git status
+<span style="color:#ae81ff">2328</span>  git diff -w
+<span style="color:#ae81ff">2329</span>  ./deploy.sh
+<span style="color:#ae81ff">2330</span>  less README.md
+<span style="color:#ae81ff">2331</span>  man awk
+</code></pre></div><p>Now, I&rsquo;m at my prompt and I&rsquo;m searching for the last command that contained the following characters <code>test</code>. If you eyeball above, you&rsquo;ll notice that it&rsquo;s command number <code>2314</code> that corresponds with a unit test that I ran with Python for a linked list. What most people do is press up twelve, I repeat, TWELVE, times! When hitting <code>ctrl-r</code>, followed by <code>test</code> will do this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#f92672">(</span>reverse-i-search<span style="color:#f92672">)</span><span style="color:#e6db74">`</span>test<span style="color:#960050;background-color:#1e0010">&#39;</span>: python -m unittest reverse_singly_linked_list.py
 </code></pre></div><ol start="3">
 <li>&ldquo;pipe&rdquo; your <code>history</code> into <code>grep</code> (without the angle brackets)</li>
 </ol>
@@ -207,7 +227,27 @@ $ cd -
 /Users/me/Desktop/foo
 </code></pre></div><hr>
 <p><strong>problem</strong> : How do I move around the text for a command that I&rsquo;ve already typed or edit a previous command? How do I go to the beginning of the line or the end of the line?</p>
-<p><strong>solution</strong> : readline shortcuts - allow you to navigate within line and edit. This is a huge efficiency gain. Surprisingly, most of our tools are built with readline, so these typically work in any place that allow you to type text (i.e. Chrome or Firefox address bar, Google Doc, etc) so they are worth learning even outside of a shell. Here&rsquo;s a decent post about them: <a href="https://spin.atomicobject.com/2017/11/10/readline-productivity/"><strong>link</strong></a></p>
+<p><strong>solution</strong> : readline shortcuts - allow you to navigate within line and edit. This is a huge efficiency gain. Surprisingly, most of our tools are built with readline, so these typically work in any place that allow you to type text (i.e. Chrome or Firefox address bar, Google Doc, etc) so they are worth learning even outside of a shell</p>
+<p><strong>Try these out</strong>. NOTE: on macOS, we must configure the meta keys (how-to after the commands below):</p>
+<pre><code>alt-b / option-b (macOS): move cursor back one word
+alt-f / option-f (macOS): move cursor forward one word
+ctrl-a: move cursor to the beginning of line
+ctrl-e: move cursor to the end of line
+ctrl-d: delete a character
+ctrl-f: move cursor forward (→)
+ctrl-b: move cursor backward (←)
+ctrl-p: previous line, previous command in history (↑)
+ctrl-n: next line, next command in history (↓)
+ctrl-k: kill the line after the cursor, add to clipboard
+ctrl-u: kill the line before the cursor, add to clipboard
+ctrl-y: paste from the clipboard
+</code></pre>
+<p><strong>HOW-TO</strong> set up meta keys for forward and backward using option keys in iTerm2 on macOS:</p>
+<ol>
+<li>Go to Profile &gt; Keys</li>
+<li>Load Preset &gt; Natural Text Editing</li>
+<li>Switch Left/Right Option from Normal &gt; Esc+</li>
+</ol>
 
             </div>
         </article>
