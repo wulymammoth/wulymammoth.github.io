@@ -111,7 +111,7 @@ end
   end
 end
 </code></pre></div><h2 id="an-option-for-those-that-use-elixirs-formatter">an option for those that use Elixir&rsquo;s formatter</h2>
-<p>If you or your team use Elixir&rsquo;s formatter, then you&rsquo;re going to end up with something like the following where the nice whitespace that gives your arguments some room to breathe is removed. One thing that I&rsquo;ve done is add an enhancement function (with a macro) into <code>test/test_helper.exs</code> that becomes available to tests that <code>use TestHelper</code></p>
+<p>If you or your team use Elixir&rsquo;s formatter, then you&rsquo;re going to end up with something like the following where the nice whitespace that gives your arguments some room to breathe is removed. One thing that I&rsquo;ve done is add two enhancement functions (using a macros) into <code>test/test_helper.exs</code> that become available to tests by invoking <code>use TestHelper</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir">defmodule <span style="color:#a6e22e">AdderTest</span> do
   test <span style="color:#e6db74">&#34;add&#34;</span> do
     <span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">3</span>
