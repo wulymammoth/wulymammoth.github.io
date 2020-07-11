@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="">
 <meta name="description" content="Love the pipe operator? Miss them in tests with ExUnit when the result is derived from a pipeline of operations necessitating an intermediate variable, like result? I did&amp;hellip;
-typical test assertion (no pipe operator) defmodule AdderTest do test &amp;#34;add&amp;#34; do result = 1..3 |&amp;gt; Enum.map(&amp;amp; &amp;amp;1 * 2) # [2, 4, 6] |&amp;gt; Adder.add(1) # [3, 5, 7] assert result == [3, 5, 7] end end verbose (with pipe) Uses an anonymous function - NOTE: must invoke with dot-syntax" />
+typical test assertion (no pipe operator) defmodule AdderTest do test &amp;#34;add&amp;#34; do result = 1..3 |&amp;gt; Enum.map(&amp;amp; &amp;amp;1 * 2) # [2, 4, 6] |&amp;gt; Adder.add(1) # [3, 5, 7] assert result == [3, 5, 7] end end verbose (with pipe) We can employ an anonymous function (lambda)." />
 <meta name="keywords" content=", Elixir, testing" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -15,7 +15,7 @@ typical test assertion (no pipe operator) defmodule AdderTest do test &amp;#34;a
 
     <title>
         
-            Elixir Pipe Into Assertion :: wulymammoth  — tolle fuga ad astra 🚀 ✨
+            Using the pipe operator in Elixir test assertions with ExUnit :: wulymammoth  — tolle fuga ad astra 🚀 ✨
         
     </title>
 
@@ -33,12 +33,12 @@ typical test assertion (no pipe operator) defmodule AdderTest do test &amp;#34;a
 
 
 
-<meta itemprop="name" content="Elixir Pipe Into Assertion">
+<meta itemprop="name" content="Using the pipe operator in Elixir test assertions with ExUnit">
 <meta itemprop="description" content="Love the pipe operator? Miss them in tests with ExUnit when the result is derived from a pipeline of operations necessitating an intermediate variable, like result? I did&hellip;
-typical test assertion (no pipe operator) defmodule AdderTest do test &#34;add&#34; do result = 1..3 |&gt; Enum.map(&amp; &amp;1 * 2) # [2, 4, 6] |&gt; Adder.add(1) # [3, 5, 7] assert result == [3, 5, 7] end end verbose (with pipe) Uses an anonymous function - NOTE: must invoke with dot-syntax">
+typical test assertion (no pipe operator) defmodule AdderTest do test &#34;add&#34; do result = 1..3 |&gt; Enum.map(&amp; &amp;1 * 2) # [2, 4, 6] |&gt; Adder.add(1) # [3, 5, 7] assert result == [3, 5, 7] end end verbose (with pipe) We can employ an anonymous function (lambda).">
 <meta itemprop="datePublished" content="2020-07-05T16:40:51-07:00" />
 <meta itemprop="dateModified" content="2020-07-05T16:40:51-07:00" />
-<meta itemprop="wordCount" content="316">
+<meta itemprop="wordCount" content="372">
 <meta itemprop="image" content="https://wulymammoth.github.io/"/>
 
 
@@ -47,15 +47,15 @@ typical test assertion (no pipe operator) defmodule AdderTest do test &#34;add&#
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://wulymammoth.github.io/"/>
 
-<meta name="twitter:title" content="Elixir Pipe Into Assertion"/>
+<meta name="twitter:title" content="Using the pipe operator in Elixir test assertions with ExUnit"/>
 <meta name="twitter:description" content="Love the pipe operator? Miss them in tests with ExUnit when the result is derived from a pipeline of operations necessitating an intermediate variable, like result? I did&hellip;
-typical test assertion (no pipe operator) defmodule AdderTest do test &#34;add&#34; do result = 1..3 |&gt; Enum.map(&amp; &amp;1 * 2) # [2, 4, 6] |&gt; Adder.add(1) # [3, 5, 7] assert result == [3, 5, 7] end end verbose (with pipe) Uses an anonymous function - NOTE: must invoke with dot-syntax"/>
+typical test assertion (no pipe operator) defmodule AdderTest do test &#34;add&#34; do result = 1..3 |&gt; Enum.map(&amp; &amp;1 * 2) # [2, 4, 6] |&gt; Adder.add(1) # [3, 5, 7] assert result == [3, 5, 7] end end verbose (with pipe) We can employ an anonymous function (lambda)."/>
 
 
 
-    <meta property="og:title" content="Elixir Pipe Into Assertion" />
+    <meta property="og:title" content="Using the pipe operator in Elixir test assertions with ExUnit" />
 <meta property="og:description" content="Love the pipe operator? Miss them in tests with ExUnit when the result is derived from a pipeline of operations necessitating an intermediate variable, like result? I did&hellip;
-typical test assertion (no pipe operator) defmodule AdderTest do test &#34;add&#34; do result = 1..3 |&gt; Enum.map(&amp; &amp;1 * 2) # [2, 4, 6] |&gt; Adder.add(1) # [3, 5, 7] assert result == [3, 5, 7] end end verbose (with pipe) Uses an anonymous function - NOTE: must invoke with dot-syntax" />
+typical test assertion (no pipe operator) defmodule AdderTest do test &#34;add&#34; do result = 1..3 |&gt; Enum.map(&amp; &amp;1 * 2) # [2, 4, 6] |&gt; Adder.add(1) # [3, 5, 7] assert result == [3, 5, 7] end end verbose (with pipe) We can employ an anonymous function (lambda)." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://wulymammoth.github.io/posts/elixir-pipe-into-assertion/" />
 <meta property="og:image" content="https://wulymammoth.github.io/"/>
@@ -137,7 +137,7 @@ typical test assertion (no pipe operator) defmodule AdderTest do test &#34;add&#
 
         <article>
             <h1 class="post-title">
-                <a href="https://wulymammoth.github.io/posts/elixir-pipe-into-assertion/">Elixir Pipe Into Assertion</a>
+                <a href="https://wulymammoth.github.io/posts/elixir-pipe-into-assertion/">Using the pipe operator in Elixir test assertions with ExUnit</a>
             </h1>
 
             <div class="post-info">
@@ -145,7 +145,7 @@ typical test assertion (no pipe operator) defmodule AdderTest do test &#34;add&#
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://wulymammoth.github.io/tags/elixir">Elixir</a></span><span class="tag"><a href="https://wulymammoth.github.io/tags/testing">testing</a></span>
                     </p>
 
-                <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>316 Words</p>
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>372 Words</p>
 
                 <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-07-05 16:40 -0700</p>
             </div>
@@ -168,7 +168,7 @@ typical test assertion (no pipe operator) defmodule AdderTest do test &#34;add&#
   end
 end
 </code></pre></div><h2 id="verbose-with-pipe">verbose (with pipe)</h2>
-<p>Uses an anonymous function - NOTE: must invoke with dot-syntax</p>
+<p>We can employ an anonymous function (lambda). NOTE: invoked with dot-syntax</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir">defmodule <span style="color:#a6e22e">AdderTest</span> do
   test <span style="color:#e6db74">&#34;add&#34;</span> do
     <span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">3</span>
@@ -188,7 +188,7 @@ end
   end
 end
 </code></pre></div><h2 id="an-option-for-those-that-use-elixirs-formatter">an option for those that use Elixir&rsquo;s formatter</h2>
-<p>If you or your team uses Elixir&rsquo;s formatter, then you&rsquo;re going to end up with something like the following where the nice whitespace that gives your arguments some room to breathe is removed. One thing that I&rsquo;ve done is add an enhancement (using a macro) function into <code>test/test_helper.exs</code> that becomes available to tests that <code>use TestHelper</code></p>
+<p>If you or your team use Elixir&rsquo;s formatter, then you&rsquo;re going to end up with something like the following where the nice whitespace that gives your arguments some room to breathe is removed. One thing that I&rsquo;ve done is add an enhancement function (with a macro) into <code>test/test_helper.exs</code> that becomes available to tests that <code>use TestHelper</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir">defmodule <span style="color:#a6e22e">AdderTest</span> do
   test <span style="color:#e6db74">&#34;add&#34;</span> do
     <span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">3</span>
@@ -212,6 +212,14 @@ defmodule <span style="color:#a6e22e">TestHelper</span> do
       <span style="color:#75715e"># 👇</span>
       def is(result, expectation) do
         assert result <span style="color:#f92672">==</span> expectation
+        result <span style="color:#75715e"># 👈 allows us to continue chaining assertions in a pipeline</span>
+      end
+
+      <span style="color:#75715e"># this one allows us to make more complex assertions</span>
+      <span style="color:#75715e"># e.g., asserting that a nested key is of a particular value</span>
+      def has(result, assertion) when is_function(assertion) do
+        assert assertion<span style="color:#f92672">.</span>(result) <span style="color:#f92672">==</span> true
+        result
       end
     end
   end
@@ -227,6 +235,7 @@ defmodule <span style="color:#a6e22e">AdderTest</span> do
     <span style="color:#f92672">|&gt;</span> <span style="color:#a6e22e">Enum</span><span style="color:#f92672">.</span>map(<span style="color:#f92672">&amp;</span> &amp;1 <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>)
     <span style="color:#f92672">|&gt;</span> <span style="color:#a6e22e">Adder</span><span style="color:#f92672">.</span>add(<span style="color:#ae81ff">1</span>)
     <span style="color:#f92672">|&gt;</span> is([<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>]) <span style="color:#75715e"># 👈 used here</span>
+    <span style="color:#f92672">|&gt;</span> has(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">List</span><span style="color:#f92672">.</span>last(&amp;1) <span style="color:#f92672">==</span> <span style="color:#ae81ff">7</span>) <span style="color:#75715e"># 👈 and here (chained)</span>
   end
 end
 </code></pre></div>

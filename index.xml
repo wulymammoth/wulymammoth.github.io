@@ -24,13 +24,13 @@ solution : Please, for the love of anything, stop (pressing up multiple times an
     </item>
     
     <item>
-      <title>Elixir Pipe Into Assertion</title>
+      <title>Using the pipe operator in Elixir test assertions with ExUnit</title>
       <link>https://wulymammoth.github.io/posts/elixir-pipe-into-assertion/</link>
       <pubDate>Sun, 05 Jul 2020 16:40:51 -0700</pubDate>
       
       <guid>https://wulymammoth.github.io/posts/elixir-pipe-into-assertion/</guid>
       <description>Love the pipe operator? Miss them in tests with ExUnit when the result is derived from a pipeline of operations necessitating an intermediate variable, like result? I did&amp;hellip;
-typical test assertion (no pipe operator) defmodule AdderTest do test &amp;#34;add&amp;#34; do result = 1..3 |&amp;gt; Enum.map(&amp;amp; &amp;amp;1 * 2) # [2, 4, 6] |&amp;gt; Adder.add(1) # [3, 5, 7] assert result == [3, 5, 7] end end verbose (with pipe) Uses an anonymous function - NOTE: must invoke with dot-syntax</description>
+typical test assertion (no pipe operator) defmodule AdderTest do test &amp;#34;add&amp;#34; do result = 1..3 |&amp;gt; Enum.map(&amp;amp; &amp;amp;1 * 2) # [2, 4, 6] |&amp;gt; Adder.add(1) # [3, 5, 7] assert result == [3, 5, 7] end end verbose (with pipe) We can employ an anonymous function (lambda).</description>
     </item>
     
     <item>
