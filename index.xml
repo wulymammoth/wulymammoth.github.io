@@ -18,9 +18,8 @@
       <pubDate>Mon, 06 Jul 2020 09:27:11 -0700</pubDate>
       
       <guid>https://wulymammoth.github.io/posts/shell-shock/</guid>
-      <description>Ever wonder if there&amp;rsquo;s a better way to use your terminal and shell? Feeling a little clunky? Here are a few good-to-knows for those of us that have never dabbled in sys-admin or dev-ops work
- problem : Do I have to push up (arrow) multiple times to find a previous command that I need to run? What if I just want to run the last command again?
-solution : Please, for the love of anything, stop (pressing up multiple times and eyeballing)!</description>
+      <description>Ever wonder if there are ways to be more efficient in our terminal and shell? Feeling a little clunky? Here are a few good-to-knows for those of us that have never dabbled in sys-admin or dev-ops work
+ problem : Do I have to push up (arrow) multiple times to find a previous command that I need to run? What if I just want to run the last command again?</description>
     </item>
     
     <item>
