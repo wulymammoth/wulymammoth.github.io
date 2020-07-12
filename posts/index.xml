@@ -21,14 +21,8 @@
 <hr>
 <p><strong>problem</strong> : Do I have to push up (arrow) multiple times to find a previous command that I need to run? What if I just want to run the last command again?</p>
 <p><strong>solution</strong> : Please, for the love of anything, stop (pressing up multiple times and eyeballing)! This is ridiculously inefficient! Three things!</p>
-<ol>
-<li>
-<p>To simply run the previous command without moving off our keyboard&rsquo;s home row: <code>ctrl-p</code> (mnemonic for &ldquo;previous&rdquo;) followed by the <code>&lt;Enter&gt;</code> key. Went past our command? <code>ctrl-n</code> (mnemonic for &ldquo;next&rdquo;).</p>
-</li>
-<li>
-<p>If we know it&rsquo;s not the last command, the following is probably the utility that I rely on most &ndash; <code>reverse-i-search</code>. This utility treats our (command) <code>history</code> like a stack and (fuzzy) finds the most recent match for any term/keyword that exists in our history. To initialize it, hit <code>ctrl-r</code>. Once we&rsquo;ve typed something it should arrive at our first match. If the first match isn&rsquo;t what we&rsquo;re looking for, then hit <code>ctrl-r</code> again and it&rsquo;ll go to the next previous match. And if we&rsquo;ve gone past it, use <code>ctrl-s</code>/<code>&lt;Shift&gt;-ctrl-r</code> (depending on our operating system). To exit the search, use <code>ctrl-g</code>. This has almost completely eliminated all my use of aliases.</p>
-</li>
-</ol>
+<p><strong>&ndash; FIRST &ndash;</strong>  To simply run the previous command without moving off our keyboard&rsquo;s home row: <code>ctrl-p</code> (mnemonic for &ldquo;previous&rdquo;) followed by the <code>&lt;Enter&gt;</code> key. Went past our command? <code>ctrl-n</code> (mnemonic for &ldquo;next&rdquo;).</p>
+<p><strong>&ndash; SECOND &ndash;</strong> If we know it&rsquo;s not the last command, the following is probably the utility that I rely on most: <code>reverse-i-search</code>. This utility treats our (command) <code>history</code> like a stack and (fuzzy) finds the most recent match for any term/keyword that exists in our history. To initialize it, hit <code>ctrl-r</code>. Once we&rsquo;ve typed something it should arrive at our first match. If the first match isn&rsquo;t what we&rsquo;re looking for, then hit <code>ctrl-r</code> again and it&rsquo;ll go to the next previous match. And if we&rsquo;ve gone past it, use <code>ctrl-s</code>/<code>&lt;Shift&gt;-ctrl-r</code> (depending on our operating system). To exit the search, use <code>ctrl-g</code>. This has almost completely eliminated all my use of aliases.</p>
 <p>Let&rsquo;s say that our history looks like this. NOTE: the numbers on the left correspond to the line number in my bash history</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ history
 <span style="color:#ae81ff">2311</span>  ls -l
@@ -48,12 +42,10 @@
 <span style="color:#ae81ff">2330</span>  less README.md
 <span style="color:#ae81ff">2331</span>  man awk
 </code></pre></div><p>Now, I&rsquo;m at my prompt and I&rsquo;m searching for the last command that contained the following characters: <code>test</code>. If we eyeball above, we&rsquo;ll notice that it&rsquo;s command number <code>2314</code> that corresponds with a unit test that I ran with Python for a linked list. What most people do is press up twelve, I repeat, TWELVE, times! When hitting <code>ctrl-r</code>, followed by entering the characters, <code>test</code>, will find that command in its entirety. We can just hit <code>&lt;Enter&gt;</code> to invoke (run) it</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">                     👇 <span style="color:#75715e"># what we type will be displayed here</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">                     👇 <span style="color:#75715e"># what we type will be display here</span>
 $ <span style="color:#f92672">(</span>reverse-i-search<span style="color:#f92672">)</span><span style="color:#e6db74">`</span>test<span style="color:#960050;background-color:#1e0010">&#39;</span>: python -m unittest reverse_singly_linked_list.py
-                                          <span style="color:#f92672">||||</span> <span style="color:#75715e"># 👈 only matching part</span>
-</code></pre></div><ol start="3">
-<li>&ldquo;pipe&rdquo; our <code>history</code> into <code>grep</code> (without the angle brackets). This will pull up ALL matches of a command that contains the given term. This is useful if we can&rsquo;t remember to avoid having to hit <code>ctrl-r</code> many times in search of a command that we can&rsquo;t fully remember.</li>
-</ol>
+                                          👆 <span style="color:#75715e"># match begins here</span>
+</code></pre></div><p><strong>&ndash; LASTLY (third) &ndash;</strong> we can &ldquo;pipe&rdquo; our <code>history</code> into <code>grep</code> (without the angle brackets). This will pull up ALL matches of a command that contains the given term. This is useful if we can&rsquo;t remember to avoid having to hit <code>ctrl-r</code> many times in search of a command that we can&rsquo;t fully remember.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ history | grep &lt;term/keyword<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>&gt;
 </code></pre></div><hr>
 <p><strong>problem</strong> : What are the options for this thing? (some Unix utility) Do I have to go to Google every time?</p>
@@ -87,7 +79,7 @@ $ cd -
 </code></pre></div><hr>
 <p><strong>problem</strong> : How do I move around the text for a command that I&rsquo;ve already typed or edit a previous command? How do I go to the beginning of the line or the end of the line?</p>
 <p><strong>solution</strong> : readline shortcuts - allow us to navigate within a line and perform edits. This is a huge efficiency gain. Surprisingly, most of our tools are built with readline, so these typically work in any place that allow us to type text (i.e. Chrome or Firefox address bar, Google Doc, etc) so they are worth learning even outside of a shell</p>
-<p><strong>Try these out</strong>. NOTE: on macOS, we must configure the meta keys (how-to after the commands below):</p>
+<p><strong>Try these out</strong>. NOTE: on macOS, we must configure the meta keys for the option-key-based commands to work (how-to after the commands below). If we care about ergonomics a common key re-map is changing our caps-lock key to <code>ctrl</code>. This can be done through our system keyboard preferences&rsquo; modifier keys (on macOS):</p>
 <pre><code>alt-b / option-b (macOS): move cursor back one word
 alt-f / option-f (macOS): move cursor forward one word
 ctrl-a: move cursor to the beginning of line
