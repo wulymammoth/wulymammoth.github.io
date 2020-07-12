@@ -83,15 +83,16 @@ $ cd -
 <pre><code>alt-b / option-b (macOS): move cursor back one word
 alt-f / option-f (macOS): move cursor forward one word
 ctrl-a: move cursor to the beginning of line
-ctrl-e: move cursor to the end of line
-ctrl-d: delete a character
-ctrl-f: move cursor forward (→)
 ctrl-b: move cursor backward (←)
-ctrl-p: previous line, previous command in history (↑)
-ctrl-n: next line, next command in history (↓)
+ctrl-d: delete a character
+ctrl-e: move cursor to the end of line
+ctrl-f: move cursor forward (→)
 ctrl-k: kill the line after the cursor, add to clipboard
+ctrl-n: next line, next command in history (↓)
+ctrl-p: previous line, previous command in history (↑)
 ctrl-u: kill the line before the cursor, add to clipboard
-ctrl-y: paste from the clipboard
+ctrl-w: delete a word
+ctrl-y: undo / paste from the clipboard
 </code></pre>
 <p><strong>HOW-TO</strong> set up meta keys for forward and backward using option keys in iTerm2 on macOS:</p>
 <ol>
